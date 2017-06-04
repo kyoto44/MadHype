@@ -31,31 +31,22 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="images\door.png">
+    <Image Include="images\zal.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
     <Image Include="images\Location.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="images\opendoor.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persBL.png">
+    <Image Include="images\door.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
     <Image Include="images\persBR.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="images\persL.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persR.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
     <Image Include="images\persSL.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="images\persSLM.png">
+    <Image Include="images\stenZ.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
     <Image Include="images\persSR.png">
@@ -64,10 +55,19 @@
     <Image Include="images\persSRM.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="images\stenZ.png">
+    <Image Include="images\persSLM.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="images\zal.png">
+    <Image Include="images\persR.png">
+      <Filter>Файлы ресурсов\images</Filter>
+    </Image>
+    <Image Include="images\persL.png">
+      <Filter>Файлы ресурсов\images</Filter>
+    </Image>
+    <Image Include="images\persBL.png">
+      <Filter>Файлы ресурсов\images</Filter>
+    </Image>
+    <Image Include="images\opendoor.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
   </ItemGroup>
