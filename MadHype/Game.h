@@ -57,9 +57,12 @@ namespace MadHype {
 			this->ClientSize = System::Drawing::Size(494, 368);
 			this->Name = L"Game";
 			this->Text = L"Game";
+			this->Load += gcnew System::EventHandler(this, &Game::Game_Load);
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
+	private: System::Void Game_Load(System::Object^  sender, System::EventArgs^  e) {
+	}
 	};
 }
