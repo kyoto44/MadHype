@@ -141,26 +141,27 @@
     <ClInclude Include="Game.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\RPGhype\RPGhype\images\door.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\Location.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\opendoor.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persBL.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persBR.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persL.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persR.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persSL.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persSLM.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persSR.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\persSRM.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\stenZ.png" />
-    <Image Include="..\..\RPGhype\RPGhype\images\zal.png" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.h</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\door.png" />
+    <Image Include="images\Location.png" />
+    <Image Include="images\opendoor.png" />
+    <Image Include="images\persBL.png" />
+    <Image Include="images\persBR.png" />
+    <Image Include="images\persL.png" />
+    <Image Include="images\persR.png" />
+    <Image Include="images\persSL.png" />
+    <Image Include="images\persSLM.png" />
+    <Image Include="images\persSR.png" />
+    <Image Include="images\persSRM.png" />
+    <Image Include="images\stenZ.png" />
+    <Image Include="images\zal.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
