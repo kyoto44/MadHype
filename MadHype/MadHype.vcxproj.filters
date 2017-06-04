@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Файлы ресурсов\Images">
-      <UniqueIdentifier>{c3f9a120-6f92-4918-9eca-21ec7f39facd}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -28,41 +25,8 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\door.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\opendoor.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persBL.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persBR.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persL.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persR.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSL.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSLM.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSR.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSRM.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\stenZ.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\zal.png">
-      <Filter>Файлы ресурсов\Images</Filter>
-    </Image>
+    <EmbeddedResource Include="Game.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
