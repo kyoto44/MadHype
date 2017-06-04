@@ -26,46 +26,54 @@
     <ClInclude Include="Game.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\RPGhype\RPGhype\images\door.png">
+    <Image Include="images\door.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\Location.png">
+    <Image Include="images\Location.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\opendoor.png">
+    <Image Include="images\opendoor.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persBL.png">
+    <Image Include="images\persBL.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persBR.png">
+    <Image Include="images\persBR.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persL.png">
+    <Image Include="images\persL.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persR.png">
+    <Image Include="images\persR.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persSL.png">
+    <Image Include="images\persSL.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persSLM.png">
+    <Image Include="images\persSLM.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persSR.png">
+    <Image Include="images\persSR.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\persSRM.png">
+    <Image Include="images\persSRM.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\stenZ.png">
+    <Image Include="images\stenZ.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
-    <Image Include="..\..\RPGhype\RPGhype\images\zal.png">
+    <Image Include="images\zal.png">
       <Filter>Файлы ресурсов\images</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Game.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
