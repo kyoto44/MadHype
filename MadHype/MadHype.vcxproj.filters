@@ -14,4 +14,55 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\RPGhype\RPGhype\images\door.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\Location.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\opendoor.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persBL.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persBR.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persL.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persR.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persSL.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persSLM.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persSR.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\persSRM.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\stenZ.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+    <Image Include="..\..\RPGhype\RPGhype\images\zal.png">
+      <Filter>Файлы ресурсов</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

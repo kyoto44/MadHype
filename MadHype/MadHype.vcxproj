@@ -93,6 +93,8 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies />
+      <SubSystem>Windows</SubSystem>
+      <EntryPointSymbol>main</EntryPointSymbol>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,6 +126,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\RPGhype\RPGhype\images\door.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\Location.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\opendoor.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persBL.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persBR.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persL.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persR.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persSL.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persSLM.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persSR.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\persSRM.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\stenZ.png" />
+    <Image Include="..\..\RPGhype\RPGhype\images\zal.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
