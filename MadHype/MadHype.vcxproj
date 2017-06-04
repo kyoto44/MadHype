@@ -141,25 +141,12 @@
     <ClInclude Include="Game.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game.resx">
       <DependentUpon>Game.h</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\door.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\opendoor.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persBL.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persBR.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persL.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persR.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSL.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSLM.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSR.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\persSRM.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\stenZ.png" />
-    <Image Include="..\..\..\..\Desktop\SpaceX\rpgtest\rpgtest\images\zal.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
