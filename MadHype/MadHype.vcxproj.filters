@@ -26,7 +26,13 @@
     <ClInclude Include="Game.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
+    <ClInclude Include="Player.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>
