@@ -138,7 +138,7 @@ namespace MadHype {
 	}
 
 	
-
+//cock
 	protected:
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
