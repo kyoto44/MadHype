@@ -7,8 +7,6 @@ using namespace System::Drawing;
 ref class Player
 {
 	
-
-
 public:
 	Player(int level, int hp, int mp, int x, int y, int xp,Bitmap^ persl, Bitmap^ persr)
 	{
@@ -24,13 +22,14 @@ public:
 
 private:
 	int Level,
-		HP,
+		HP,	
 		MP,
 		X,
 		Y,
 		XP;
 	Bitmap^ persL;
 	Bitmap^ persR;
+
 
 
 public:

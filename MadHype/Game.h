@@ -7,6 +7,7 @@
 #include "Enemy.h"
 #include "Map.h"
 #include <fstream>
+#include "StartMenu.h"
 
 namespace MadHype {
 
@@ -57,7 +58,12 @@ namespace MadHype {
 
 	private: System::ComponentModel::BackgroundWorker^  backgroundWorker1;
 
+
 	private: System::ComponentModel::IContainer^  components;
+
+
+
+	private: StartMenu ^ startmenu = gcnew StartMenu();
 
 #pragma region Windows Form Designer generated code
 			 /// <summary>
@@ -86,10 +92,14 @@ namespace MadHype {
 				 this->Name = L"Game";
 				 this->Text = L"Game";
 				 this->Load += gcnew System::EventHandler(this, &Game::Form1_Load);
+				 this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyDown);
 				 this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Game::Form1_KeyPress);
 				 this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyUp);
-				 this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyDown);
 				 this->ResumeLayout(false);
+
+				 this->Controls->Add(startmenu);
+				 //startmenu->Play->Click += gcnew System::EventHandler(this, &Game::Play_Click);
+
 
 			 }
 			 
@@ -101,15 +111,21 @@ namespace MadHype {
 			 
 
 			  int arrow = 0, timeChangeSpriteOfPlayer = 0;
+
 			  bool flagChangeSpriteOfPlayer = true;
+
+			 
+			  //  static bool gameLife = false;
+			  
 			 
 			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Location.png", true));
 
 			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\persL.png", true), gcnew Bitmap(".\\images\\persR.png", true));
 
-
+			  
 
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
+
 		this->backgroundWorker1->WorkerReportsProgress = true;
 		this->backgroundWorker1->RunWorkerAsync();
 
@@ -117,7 +133,11 @@ namespace MadHype {
 		
 		map->setMap(map->readFileMap(".\\maps\\mapZal.txt"));
 
+
+
 	}
+
+	
 
 	protected:
 		virtual void OnPaint(PaintEventArgs^ e) override
@@ -138,7 +158,7 @@ namespace MadHype {
 
 			}
 
-
+			
 
 			e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
 
@@ -158,34 +178,32 @@ namespace MadHype {
 
 #pragma endregion
 	private: System::Void Tick(System::Object^  sender, System::ComponentModel::DoWorkEventArgs^  e) {
-
-
+	
+		
 		while (true)
 		{
-			int direct = arrow;
-			
+			bool gameLife = startmenu->GameLife();
 
-			
-			
-			if (player->checkStop(direct, map->getMap()))
-			{
-				player->move(direct, 1);
-				for (int i = 0; i < this->Width / 16; i++)
+			while (gameLife)
+			{		
+				int direct = arrow;
+
+				if (player->checkStop(direct, map->getMap()))
 				{
-					map->move(direct, 1);
-					Sleep(5);
-					this->Invalidate();
+					player->move(direct, 1);
+					for (int i = 0; i < this->Width / 16; i++)
+					{
+						map->move(direct, 1);
+						Sleep(5);
+						this->Invalidate();
+					}
+
 				}
 
+
+				this->Invalidate();
 			}
-			
-			this->Invalidate();
-
-
-			
-
 		}
-
 	}
 
 	private: System::Void backgroundWorker1_ProgressChanged(System::Object^  sender, System::ComponentModel::ProgressChangedEventArgs^  e) 

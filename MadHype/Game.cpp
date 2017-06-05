@@ -2,6 +2,7 @@
 
 
 
+
 using namespace System;
 using namespace System::Windows::Forms;
 
@@ -11,5 +12,6 @@ int main(array<String^>^ args) {
 	Application::SetCompatibleTextRenderingDefault(false);
 	MadHype::Game form;
 	Application::Run(%form);
+	
 }
 
