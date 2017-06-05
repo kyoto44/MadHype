@@ -1,20 +1,33 @@
 #pragma once
 
+#include "resource.h"
+
+
+using namespace System;
 using namespace System::Drawing;
+
 
 ref class Map
 {
+	
+
 public:
-	Map()
+	Map(int x, int y, Bitmap^ zal)
 	{
+		X = x;
+		Y = y;
+		Zal = zal;
+		
 	}
 
 private:
-	int X = 0,
-		Y = 0;
-	Bitmap^ zal = gcnew Bitmap(".\\images\\Location.png", true);
+	int X,
+		Y;
+	Bitmap^ Zal;
 
-	int** map;
+	int** mapBin;
+
+	
 
 public:
 
@@ -22,16 +35,23 @@ public:
 
 	Bitmap^ getLocation()
 	{
-		return zal;
+		return Zal;
+	}
+
+	void setLocation(Bitmap^ x)
+	{
+		Zal = x;
+
+
 	}
 
 
 	void setMap(int** x)
 	{
-		map = x;
+		mapBin = x;
 	}
 
-	int** getMap() { return map; }
+	int** getMap() { return mapBin; }
 
 	void setX(int x)
 	{

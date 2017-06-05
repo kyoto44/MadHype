@@ -2,7 +2,6 @@
 
 
 
-
 using namespace System;
 using namespace System::Windows::Forms;
 
@@ -13,3 +12,4 @@ int main(array<String^>^ args) {
 	MadHype::Game form;
 	Application::Run(%form);
 }
+

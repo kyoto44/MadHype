@@ -10,11 +10,10 @@
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
     <Filter Include="Файлы ресурсов">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <UniqueIdentifier>{25856c90-5bad-450a-8ebc-1757763332d6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Файлы ресурсов\images">
-      <UniqueIdentifier>{3707c34f-7a39-48b9-b1b0-7df8b23ddb84}</UniqueIdentifier>
+    <Filter Include="Файлы ресурсов\Images">
+      <UniqueIdentifier>{77554a55-bc7a-4191-9604-28c6fa8b23e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -35,51 +34,42 @@
     <ClInclude Include="Map.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="images\zal.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
+    <ResourceCompile Include="MadHypeRes.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
     <Image Include="images\Location.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\door.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persBR.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persSL.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\stenZ.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persSR.png">
-      <Filter>Файлы ресурсов\images</Filter>
+      <Filter>Файлы ресурсов\Images</Filter>
     </Image>
     <Image Include="images\persSRM.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persSLM.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persR.png">
-      <Filter>Файлы ресурсов\images</Filter>
-    </Image>
-    <Image Include="images\persL.png">
-      <Filter>Файлы ресурсов\images</Filter>
+      <Filter>Файлы ресурсов\Images</Filter>
     </Image>
     <Image Include="images\persBL.png">
-      <Filter>Файлы ресурсов\images</Filter>
+      <Filter>Файлы ресурсов\Images</Filter>
     </Image>
-    <Image Include="images\opendoor.png">
-      <Filter>Файлы ресурсов\images</Filter>
+    <Image Include="images\persBR.png">
+      <Filter>Файлы ресурсов\Images</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Game.resx">
-      <Filter>Файлы ресурсов</Filter>
-    </EmbeddedResource>
+    <Image Include="images\persL.png">
+      <Filter>Файлы ресурсов\Images</Filter>
+    </Image>
+    <Image Include="images\persR.png">
+      <Filter>Файлы ресурсов\Images</Filter>
+    </Image>
+    <Image Include="images\persSL.png">
+      <Filter>Файлы ресурсов\Images</Filter>
+    </Image>
+    <Image Include="images\persSLM.png">
+      <Filter>Файлы ресурсов\Images</Filter>
+    </Image>
+    <Image Include="images\persSR.png">
+      <Filter>Файлы ресурсов\Images</Filter>
+    </Image>
   </ItemGroup>
 </Project>

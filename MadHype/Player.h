@@ -3,27 +3,34 @@
 
 using namespace System::Drawing;
 
+
 ref class Player
 {
 	
 
+
 public:
-
-	Player()
+	Player(int level, int hp, int mp, int x, int y, int xp,Bitmap^ persl, Bitmap^ persr)
 	{
-
+		Level = level;
+		HP = hp;
+		MP = mp;
+		X = x;
+		Y = y;
+		XP = xp;
+		persL = persl;
+		persR = persr;
 	}
 
-
 private:
-	int Level = 0,
-		HP = 50,
-		MP = 50,
-		X = 8,
-		Y = 8,
-		XP = 0;
-	Bitmap^ persL = gcnew Bitmap(".\\images\\persL.png", true);
-	Bitmap^ persR = gcnew Bitmap(".\\images\\persR.png", true);
+	int Level,
+		HP,
+		MP,
+		X,
+		Y,
+		XP;
+	Bitmap^ persL;
+	Bitmap^ persR;
 
 
 public:
@@ -38,6 +45,15 @@ public:
 		return persR;
 	}
 
+	void setPersL(Bitmap^ x)
+	{
+		persL = x;
+	}
+
+	void setPersR(Bitmap^ x)
+	{
+		persR = x;
+	}
 
 	void setLevel(int x)
 	{
@@ -115,6 +131,11 @@ public:
 				return false;
 			break;
 		}
+		default:
+		{
+			return false;
+			break;
+		}
 
 		}
 		return true;
@@ -128,32 +149,34 @@ public:
 		{
 
 
-			persL = gcnew Bitmap(".\\images\\persL.png", true);
-			persR = gcnew Bitmap(".\\images\\persR.png", true);
-				Y += Speed;
+			setPersL( gcnew Bitmap(".\\images\\persL.png", true));
+			setPersR(gcnew Bitmap(".\\images\\persR.png", true));
+			Y += Speed;
 			break;
+
+			
 		}
 		case 2: //влево
 		{
-			persL = gcnew Bitmap(".\\images\\persSL.png", true);
-			persR = gcnew Bitmap(".\\images\\persSLM.png", true);
-				X -= Speed;
+			setPersL(gcnew Bitmap(".\\images\\persSL.png",true));
+			setPersR (gcnew Bitmap(".\\images\\persSLM.png", true));
+			X -= Speed;
 			break;
 		}
 		case 3: //вправо
 		{
-			persL = gcnew Bitmap(".\\images\\persSR.png", true);
-			persR = gcnew Bitmap(".\\images\\persSRM.png", true);
+			setPersL(gcnew Bitmap(".\\images\\persSR.png", true));
+			setPersR(gcnew Bitmap(".\\images\\persSRM.png", true));
 			
-				X += Speed;
+			X += Speed;
 			break;
 		}
 		case 4://вверх
 		{
-			persL = gcnew Bitmap(".\\images\\persBL.png", true);
-			persR = gcnew Bitmap(".\\images\\persBR.png", true);
-		
-				Y -= Speed;
+			setPersL (gcnew Bitmap(".\\images\\persBL.png", true));
+			setPersR (gcnew Bitmap(".\\images\\persBR.png", true));
+
+			Y -= Speed;
 			break;
 		}
 		default:

@@ -91,26 +91,26 @@ namespace MadHype {
 
 			 }
 			 
-			 static System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 50.00F, FontStyle::Regular);
+	public: 
+			  System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 50.00F, FontStyle::Regular);
 
-			 static Bitmap^ door = gcnew Bitmap(".\\images\\door.png", true);
+			  Bitmap^ door = gcnew Bitmap(".\\images\\door.png", true);
 
+			  int** x = new int*[16];
 
-			 static int** x = new int*[16];
+			  int arrow = 0, timeChangeSpriteOfPlayer = 0;
+			  bool flagChangeSpriteOfPlayer = true;
+			 
+			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Location.png", true));
 
-			 static int arrow = 0, a = 0;
-			 static bool flag = true;
-
-			 static Player player;
-			 static Map map;
-
-
+			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\persL.png", true), gcnew Bitmap(".\\images\\persR.png", true));
 
 
 
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 		this->backgroundWorker1->WorkerReportsProgress = true;
 		this->backgroundWorker1->RunWorkerAsync();
+
 
 		
 		for (int i = 0; i < 16; i++) x[i] = new int[16];
@@ -128,46 +128,46 @@ namespace MadHype {
 			}
 
 		}
-
-		map.setMap(x); 
+		
+		map->setMap(x); 
 
 	}
 
 	protected:
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
-			e->Graphics->DrawImageUnscaled(map.getLocation(), map.getX(), map.getY());
+			e->Graphics->DrawImageUnscaled(map->getLocation(), map->getX(), map->getY());
+		
 		
 
 
-			if (flag)
+			if (flagChangeSpriteOfPlayer)
 			{
-				e->Graphics->DrawImage(player.getPersL(), this->Width/2, this->Width / 2, this->Width / 16, this->Width / 16);
+				e->Graphics->DrawImage(player->getPersL(), this->Width/2, this->Width / 2,this->Width/16, this->Width / 16);
 
 			}
 			else
 			{
-				e->Graphics->DrawImage(player.getPersR(), this->Width / 2, this->Width / 2, this->Width / 16, this->Width / 16);
+				e->Graphics->DrawImage(player->getPersR(), this->Width / 2, this->Width / 2, this->Width / 16, this->Width / 16);
 
 			}
 
 
 
-			e->Graphics->DrawString(Convert::ToString(player.getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
 
-			e->Graphics->DrawString(Convert::ToString(player.getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
 
 
-			if (a == 20)
+			if (timeChangeSpriteOfPlayer == 20)
 			{
-				if (flag)
-					flag = false;
-				else
-					flag = true;
-				a = 0;
+
+				flagChangeSpriteOfPlayer = !flagChangeSpriteOfPlayer;
+
+				timeChangeSpriteOfPlayer = 0;
 			}
 			else
-				a++;
+				timeChangeSpriteOfPlayer++;
 		}
 
 #pragma endregion
@@ -181,17 +181,19 @@ namespace MadHype {
 
 			
 			
-			if (player.checkStop(direct, map.getMap()))
+			if (player->checkStop(direct, map->getMap()))
 			{
-				player.move(direct, 1);
+				player->move(direct, 1);
 				for (int i = 0; i < this->Width / 16; i++)
 				{
-					map.move(direct, 1);
+					map->move(direct, 1);
 					Sleep(5);
 					this->Invalidate();
 				}
 
 			}
+			
+			this->Invalidate();
 
 
 			

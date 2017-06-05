@@ -144,16 +144,13 @@
     </ClInclude>
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Game.resx">
-      <DependentUpon>Game.h</DependentUpon>
-    </EmbeddedResource>
+    <ResourceCompile Include="MadHypeRes.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="images\door.png" />
     <Image Include="images\Location.png" />
-    <Image Include="images\opendoor.png" />
     <Image Include="images\persBL.png" />
     <Image Include="images\persBR.png" />
     <Image Include="images\persL.png" />
@@ -162,8 +159,6 @@
     <Image Include="images\persSLM.png" />
     <Image Include="images\persSR.png" />
     <Image Include="images\persSRM.png" />
-    <Image Include="images\stenZ.png" />
-    <Image Include="images\zal.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
