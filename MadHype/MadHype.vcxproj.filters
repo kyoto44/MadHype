@@ -77,6 +77,9 @@
     <Image Include="images\persSR.png">
       <Filter>Файлы ресурсов\Images</Filter>
     </Image>
+    <Image Include="E:\downloads\Menubackground.png">
+      <Filter>Файлы ресурсов\Images</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game.resx" />

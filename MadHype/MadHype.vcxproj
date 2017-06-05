@@ -154,6 +154,7 @@
     <ResourceCompile Include="MadHypeRes.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="E:\downloads\Menubackground.png" />
     <Image Include="images\Location.png" />
     <Image Include="images\persBL.png" />
     <Image Include="images\persBR.png" />
