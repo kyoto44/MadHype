@@ -32,24 +32,30 @@ private:
 
 public:
 
-	int** readFileMap(const char *name)
+	int** readFileMap(const char *name)		
 	{
 
 
-		std::ifstream file(name);
+		std::ifstream file;
+
+		file.open(name);
 
 		int x, y;
-		file >> x >> y;
+		file >> x;
+		
+		file >> y;
 
 		int** mass = new int*[x];
 
-		for (int i = 0; i < x; i++) mass[i] = new int[x];
+		for (int i = 0; i < x; i++) mass[i] = new int[y];
 
-		for (int i = 0; i < x; i++)
+		for (int j = 0; j < y; j++)
 		{
-			for (int j = 0; j < y; j++)
+			for (int i = 0; i < x; i++)
 			{
+				
 				file >> mass[i][j];
+				
 			}
 		}
 
