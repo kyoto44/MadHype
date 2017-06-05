@@ -1,6 +1,7 @@
 #pragma once
 
 #include "resource.h"
+#include <fstream>
 
 
 using namespace System;
@@ -31,6 +32,31 @@ private:
 
 public:
 
+	int** readFileMap(const char *name)
+	{
+
+
+		std::ifstream file(name);
+
+		int x, y;
+		file >> x >> y;
+
+		int** mass = new int*[x];
+
+		for (int i = 0; i < x; i++) mass[i] = new int[x];
+
+		for (int i = 0; i < x; i++)
+		{
+			for (int j = 0; j < y; j++)
+			{
+				file >> mass[i][j];
+			}
+		}
+
+		file.close();
+		return mass;
+
+	}
 
 
 	Bitmap^ getLocation()

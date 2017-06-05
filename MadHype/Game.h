@@ -2,10 +2,11 @@
 
 
 #include <windows.h>
-#include < ctime > 
+#include <ctime> 
 #include "Player.h"
 #include "Enemy.h"
 #include "Map.h"
+#include <fstream>
 
 namespace MadHype {
 
@@ -20,6 +21,7 @@ namespace MadHype {
 	using namespace System::Collections::Generic;
 	using namespace System::Configuration;
 	using namespace System::Media;
+	
 
 	/// <summary>
 	/// Сводка для Game
@@ -96,7 +98,7 @@ namespace MadHype {
 
 			  Bitmap^ door = gcnew Bitmap(".\\images\\door.png", true);
 
-			  int** x = new int*[16];
+			 
 
 			  int arrow = 0, timeChangeSpriteOfPlayer = 0;
 			  bool flagChangeSpriteOfPlayer = true;
@@ -111,25 +113,9 @@ namespace MadHype {
 		this->backgroundWorker1->WorkerReportsProgress = true;
 		this->backgroundWorker1->RunWorkerAsync();
 
-
 		
-		for (int i = 0; i < 16; i++) x[i] = new int[16];
-
-		for (int i = 0; i < 16; i++)
-		{
-			for (int j = 0; j < 16; j++)
-			{
-
-				x[i][j] = 0;
-				if (j == 1 || j == 14)
-					x[i][j] = 1;
-				if (i == 1 || i == 14)
-					x[i][j] = 1;
-			}
-
-		}
 		
-		map->setMap(x); 
+		map->setMap(map->readFileMap(".\\maps\\mapZal.txt"));
 
 	}
 
