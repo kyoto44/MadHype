@@ -84,7 +84,7 @@ namespace MadHype {
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				 this->ClientSize = System::Drawing::Size(1018, 999);
+				 this->ClientSize = System::Drawing::Size(1008, 985);
 				 this->DoubleBuffered = true;
 				 this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(204)));
@@ -96,10 +96,6 @@ namespace MadHype {
 				 this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Game::Form1_KeyPress);
 				 this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyUp);
 				 this->ResumeLayout(false);
-
-				 this->Controls->Add(startmenu);
-				 //startmenu->Play->Click += gcnew System::EventHandler(this, &Game::Play_Click);
-
 
 			 }
 			 
@@ -113,11 +109,7 @@ namespace MadHype {
 			  int arrow = 0, timeChangeSpriteOfPlayer = 0;
 
 			  bool flagChangeSpriteOfPlayer = true;
-
-			 
-			  //  static bool gameLife = false;
-			  
-			 
+			  			
 			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Location.png", true));
 
 			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\persL.png", true), gcnew Bitmap(".\\images\\persR.png", true));
@@ -138,7 +130,7 @@ namespace MadHype {
 	}
 
 	
-//cock
+
 	protected:
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
@@ -178,14 +170,14 @@ namespace MadHype {
 
 #pragma endregion
 	private: System::Void Tick(System::Object^  sender, System::ComponentModel::DoWorkEventArgs^  e) {
-	
-		
+
 		while (true)
 		{
 			bool gameLife = startmenu->GameLife();
-
+			
 			while (gameLife)
 			{		
+				
 				int direct = arrow;
 
 				if (player->checkStop(direct, map->getMap()))
@@ -271,6 +263,6 @@ namespace MadHype {
 		}
 	}
 
-
+			
 	};
 }

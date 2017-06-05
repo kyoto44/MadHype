@@ -37,8 +37,10 @@ namespace MadHype {
 		}
 	public: System::Windows::Forms::Label^  Play;
 	private: System::Windows::Forms::Panel^  panel1;
+	public: System::Windows::Forms::Label^  Exit;
+	private:
 	public:
-	public: System::Windows::Forms::Label^  label2;
+
 	private:
 	public: System::Windows::Forms::Label^  Settings;
 	protected:
@@ -59,7 +61,7 @@ namespace MadHype {
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(StartMenu::typeid));
 			this->Play = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->Exit = (gcnew System::Windows::Forms::Label());
 			this->Settings = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
@@ -80,7 +82,7 @@ namespace MadHype {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Transparent;
 			this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
-			this->panel1->Controls->Add(this->label2);
+			this->panel1->Controls->Add(this->Exit);
 			this->panel1->Controls->Add(this->Settings);
 			this->panel1->Controls->Add(this->Play);
 			this->panel1->Location = System::Drawing::Point(372, 495);
@@ -88,16 +90,17 @@ namespace MadHype {
 			this->panel1->Size = System::Drawing::Size(283, 165);
 			this->panel1->TabIndex = 1;
 			// 
-			// label2
+			// Exit
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->Exit->AutoSize = true;
+			this->Exit->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->label2->Location = System::Drawing::Point(52, 108);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(193, 54);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Выход";
+			this->Exit->Location = System::Drawing::Point(52, 108);
+			this->Exit->Name = L"Exit";
+			this->Exit->Size = System::Drawing::Size(193, 54);
+			this->Exit->TabIndex = 2;
+			this->Exit->Text = L"Выход";
+			this->Exit->Click += gcnew System::EventHandler(this, &StartMenu::Exit_Click);
 			// 
 			// Settings
 			// 
@@ -109,6 +112,7 @@ namespace MadHype {
 			this->Settings->Size = System::Drawing::Size(289, 54);
 			this->Settings->TabIndex = 1;
 			this->Settings->Text = L"Настройки";
+			this->Settings->Click += gcnew System::EventHandler(this, &StartMenu::Settings_Click);
 			// 
 			// StartMenu
 			// 
@@ -134,12 +138,21 @@ namespace MadHype {
 		{
 			return gameLife;
 		}
+	
 	private: System::Void Play_Click(System::Object^  sender, System::EventArgs^  e) {
-
 
 		gameLife = true;
 		this->DestroyHandle();
 	}
 
-	};
+	private: System::Void Settings_Click(System::Object^  sender, System::EventArgs^  e) {
+
+
+	}
+
+	private: System::Void Exit_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	
+}
+};
 }
