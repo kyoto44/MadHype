@@ -70,7 +70,7 @@ namespace MadHype {
 			this->Play->AutoSize = true;
 			this->Play->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->Play->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->Play->ForeColor = System::Drawing::Color::Black;
 			this->Play->Location = System::Drawing::Point(47, 0);
 			this->Play->Name = L"Play";
 			this->Play->Size = System::Drawing::Size(198, 54);
@@ -95,7 +95,7 @@ namespace MadHype {
 			this->Exit->AutoSize = true;
 			this->Exit->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->Exit->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->Exit->ForeColor = System::Drawing::Color::Black;
 			this->Exit->Location = System::Drawing::Point(52, 108);
 			this->Exit->Name = L"Exit";
 			this->Exit->Size = System::Drawing::Size(193, 54);
@@ -108,7 +108,7 @@ namespace MadHype {
 			this->Settings->AutoSize = true;
 			this->Settings->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
-			this->Settings->ForeColor = System::Drawing::SystemColors::Desktop;
+			this->Settings->ForeColor = System::Drawing::Color::Black;
 			this->Settings->Location = System::Drawing::Point(3, 54);
 			this->Settings->Name = L"Settings";
 			this->Settings->Size = System::Drawing::Size(289, 54);
