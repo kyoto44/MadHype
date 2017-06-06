@@ -175,16 +175,16 @@ namespace MadHype {
 			}
 
 			
+		
 
 			e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
 			e->Graphics->DrawString(Convert::ToString(player->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
-			e->Graphics->DrawString(Convert::ToString(player->getHP()), osmain, gcnew SolidBrush(Color::Red), 800, 0);
-			e->Graphics->DrawString(Convert::ToString(player->getMP()), osmain, gcnew SolidBrush(Color::Blue), 875, 0);
-			e->Graphics->DrawString(Convert::ToString(player->getLevel()), osmain, gcnew SolidBrush(Color::Yellow), 950, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getHP()), osmain, gcnew SolidBrush(Color::Red), 825, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getMP()), osmain, gcnew SolidBrush(Color::Blue), 900, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getLevel()), osmain, gcnew SolidBrush(Color::Yellow), 975, 0);
 			e->Graphics->DrawString(Convert::ToString(player->getXP()), osmain, gcnew SolidBrush(Color::Yellow), 875, 50);
-			//e->Graphics->DrawString(String^ drob="/", osmain, gcnew SolidBrush(Color::Yellow), 910, 50);
-		    //e->Graphics->DrawString(Convert::ToString(player->getXPNeededToLVLUP()), osmain, gcnew SolidBrush(Color::Yellow), 950, 50);
-
+			e->Graphics->DrawString("I", osmain, gcnew SolidBrush(Color::Yellow), 910, 50);
+			e->Graphics->DrawString(Convert::ToString(player->getXPNeededToLVLUP()), osmain, gcnew SolidBrush(Color::Yellow), 930, 50);
 
 
 			if (timeChangeSpriteOfPlayer == 20)
@@ -208,6 +208,12 @@ namespace MadHype {
 			while (gameLife)
 			{		
 				
+				if (player->getXP() > player->getXPNeededToLVLUP())
+				{
+					player->setXP(0);
+					player->setXPNeededToLVLUP(player->getXPNeededToLVLUP() + 100);
+				}
+
 				int direct = arrow;
 				player->rotation(direct);
 				if (player->checkStop(direct, map->getMap()))
