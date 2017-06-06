@@ -58,7 +58,6 @@ namespace MadHype {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(StartMenu::typeid));
 			this->Play = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->Exit = (gcnew System::Windows::Forms::Label());
@@ -71,6 +70,7 @@ namespace MadHype {
 			this->Play->AutoSize = true;
 			this->Play->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->Play->ForeColor = System::Drawing::SystemColors::Desktop;
 			this->Play->Location = System::Drawing::Point(47, 0);
 			this->Play->Name = L"Play";
 			this->Play->Size = System::Drawing::Size(198, 54);
@@ -85,7 +85,7 @@ namespace MadHype {
 			this->panel1->Controls->Add(this->Exit);
 			this->panel1->Controls->Add(this->Settings);
 			this->panel1->Controls->Add(this->Play);
-			this->panel1->Location = System::Drawing::Point(372, 495);
+			this->panel1->Location = System::Drawing::Point(286, 276);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(283, 165);
 			this->panel1->TabIndex = 1;
@@ -95,6 +95,7 @@ namespace MadHype {
 			this->Exit->AutoSize = true;
 			this->Exit->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->Exit->ForeColor = System::Drawing::SystemColors::Desktop;
 			this->Exit->Location = System::Drawing::Point(52, 108);
 			this->Exit->Name = L"Exit";
 			this->Exit->Size = System::Drawing::Size(193, 54);
@@ -107,6 +108,7 @@ namespace MadHype {
 			this->Settings->AutoSize = true;
 			this->Settings->Font = (gcnew System::Drawing::Font(L"DS Pixel Cyr", 36, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(204)));
+			this->Settings->ForeColor = System::Drawing::SystemColors::Desktop;
 			this->Settings->Location = System::Drawing::Point(3, 54);
 			this->Settings->Name = L"Settings";
 			this->Settings->Size = System::Drawing::Size(289, 54);
@@ -117,10 +119,9 @@ namespace MadHype {
 			// StartMenu
 			// 
 			this->BackColor = System::Drawing::Color::White;
-			//this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			//this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->Controls->Add(this->panel1);
 			this->DoubleBuffered = true;
+			this->Margin = System::Windows::Forms::Padding(0);
 			this->Name = L"StartMenu";
 			this->Size = System::Drawing::Size(1024, 1024);
 			this->Load += gcnew System::EventHandler(this, &StartMenu::StartMenu_Load);
