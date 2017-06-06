@@ -147,25 +147,9 @@
     </ClInclude>
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="resource.h" />
     <ClInclude Include="StartMenu.h">
       <FileType>CppControl</FileType>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="MadHypeRes.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="E:\downloads\Menubackground.png" />
-    <Image Include="images\Location.png" />
-    <Image Include="images\persBL.png" />
-    <Image Include="images\persBR.png" />
-    <Image Include="images\persL.png" />
-    <Image Include="images\persR.png" />
-    <Image Include="images\persSL.png" />
-    <Image Include="images\persSLM.png" />
-    <Image Include="images\persSR.png" />
-    <Image Include="images\persSRM.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Game.resx">

@@ -26,7 +26,8 @@ private:
 		MP,
 		X,
 		Y,
-		XP;
+		XP,
+		direct;
 	Bitmap^ persL;
 	Bitmap^ persR;
 
@@ -99,34 +100,42 @@ public:
 
 	int getXP() { return XP; }
 
+	int getDirect()
+	{
+		return direct;
+	}
+
 	bool checkStop(int Direct, int** Map)
 	{
+		
+
 		switch (Direct)
 		{
 		case 1: //вниз
 		{
-			if (Map[X][Y + 1] == 1)
+			if (Map[X][Y + 1] == 1 || Map[X][Y + 1] == 2)
 				return false;
 			break;
+
 		}
 		case 2: //влево
 		{
 			
-			if (Map[X - 1][Y] == 1)
+			if (Map[X - 1][Y] == 1 || Map[X - 1][Y] == 2)
 				return false;
 			break;
 		}
 		case 3: //вправо
 		{
-			
-			if (Map[X + 1][Y] == 1)
+
+			if (Map[X + 1][Y] == 1 || Map[X + 1][Y] == 2)
 				return false;
 			break;
 		}
 		case 4://вверх
 		{
 			
-			if (Map[X][Y - 1] == 1)
+			if (Map[X][Y - 1] == 1 || Map[X][Y - 1] == 2)
 				return false;
 			break;
 		}
@@ -140,7 +149,7 @@ public:
 		return true;
 	}
 
-	void move(int Direct, int Speed)
+	void rotation(int Direct)
 	{
 		switch (Direct)
 		{
@@ -148,33 +157,65 @@ public:
 		{
 
 
-			setPersL( gcnew Bitmap(".\\images\\persL.png", true));
-			setPersR(gcnew Bitmap(".\\images\\persR.png", true));
-			Y += Speed;
+			setPersL(gcnew Bitmap(".\\images\\pers\\persL.png", true));
+			setPersR(gcnew Bitmap(".\\images\\pers\\persR.png", true));
+			direct = 1;
 			break;
 
-			
+
 		}
 		case 2: //влево
 		{
-			setPersL(gcnew Bitmap(".\\images\\persSL.png",true));
-			setPersR (gcnew Bitmap(".\\images\\persSLM.png", true));
+			setPersL(gcnew Bitmap(".\\images\\pers\\persSL.png", true));
+			setPersR(gcnew Bitmap(".\\images\\pers\\persSLM.png", true));
+			direct = 2;
+
+			break;
+		}
+		case 3: //вправо
+		{
+			setPersL(gcnew Bitmap(".\\images\\pers\\persSR.png", true));
+			setPersR(gcnew Bitmap(".\\images\\pers\\persSRM.png", true));
+			direct = 3;
+
+			break;
+		}
+		case 4://вверх
+		{
+			setPersL(gcnew Bitmap(".\\images\\pers\\persBL.png", true));
+			setPersR(gcnew Bitmap(".\\images\\pers\\persBR.png", true));
+			direct = 4; 
+
+			break;
+		}
+		default:
+		{
+			break;
+		}
+		}
+	}
+
+	void move(int Direct, int Speed)
+	{
+		switch (Direct)
+		{
+		case 1: //вниз
+		{
+			Y += Speed;
+			break;
+		}
+		case 2: //влево
+		{
 			X -= Speed;
 			break;
 		}
 		case 3: //вправо
 		{
-			setPersL(gcnew Bitmap(".\\images\\persSR.png", true));
-			setPersR(gcnew Bitmap(".\\images\\persSRM.png", true));
-			
 			X += Speed;
 			break;
 		}
 		case 4://вверх
 		{
-			setPersL (gcnew Bitmap(".\\images\\persBL.png", true));
-			setPersR (gcnew Bitmap(".\\images\\persBR.png", true));
-
 			Y -= Speed;
 			break;
 		}

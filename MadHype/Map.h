@@ -1,6 +1,6 @@
 #pragma once
 
-#include "resource.h"
+
 #include <fstream>
 
 
@@ -23,7 +23,10 @@ public:
 
 private:
 	int X,
-		Y;
+		Y,
+		column,
+		line;
+		;
 	Bitmap^ Zal;
 
 	int** mapBin;
@@ -31,6 +34,15 @@ private:
 	
 
 public:
+
+	int getColumn() {
+		return column;
+	}
+
+	int getLine()
+	{
+		return line;
+	}
 
 	int** readFileMap(const char *name)		
 	{
@@ -44,6 +56,9 @@ public:
 		file >> x;
 		
 		file >> y;
+
+		column = x;
+		line = y;
 
 		int** mass = new int*[x];
 
@@ -136,6 +151,60 @@ public:
 		}
 
 	}
+
+	void openDoor(int Direct,int x, int y)
+	{
+		switch (Direct)
+		{
+		case 1: //вниз
+		{
+			
+			if (mapBin[x][y + 1] == 2)
+				mapBin[x][y + 1] = 3;
+			else if (mapBin[x][y + 1] == 3)
+				mapBin[x][y + 1] = 2;
+			break;
+			
+		}
+		case 2: //влево
+		{
+
+			if (mapBin[x - 1][y] == 2)
+				mapBin[x - 1][y] = 3;
+			else if (mapBin[x - 1][y] == 3)
+				mapBin[x - 1][y] = 2;
+			break;
+		}
+		case 3: //вправо
+		{
+
+			if (mapBin[x + 1][y] == 2)
+				mapBin[x + 1][y] = 3;
+			else if (mapBin[x + 1][y] == 3)
+				mapBin[x + 1][y] = 2;
+
+			 
+			break;
+		}
+		case 4://вверх
+		{
+			if (mapBin[x][y - 1] == 2)
+				mapBin[x][y - 1] = 3;
+			else if (mapBin[x][y - 1] == 3)
+				mapBin[x][y - 1] = 2;
+			break;
+		}
+		default:
+		{
+			break;
+		}
+
+		}
+
+	}
+
+
+
 
 
 

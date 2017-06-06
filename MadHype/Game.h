@@ -91,7 +91,7 @@ namespace MadHype {
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				 this->ClientSize = System::Drawing::Size(1024, 1024);
+				 this->ClientSize = System::Drawing::Size(1018, 999);
 				 this->DoubleBuffered = true;
 				 this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(204)));
@@ -109,7 +109,9 @@ namespace MadHype {
 	public: 
 			  System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 50.00F, FontStyle::Regular);
 
-			  Bitmap^ door = gcnew Bitmap(".\\images\\door.png", true);
+			  Bitmap^ closeDoor = gcnew Bitmap(".\\images\\doors\\closedoor.png", true);
+
+			  Bitmap^ openDoor = gcnew Bitmap(".\\images\\doors\\opendoor.png", true);
 
 			 
 
@@ -119,7 +121,7 @@ namespace MadHype {
 			  			
 			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Location.png", true));
 
-			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\persL.png", true), gcnew Bitmap(".\\images\\persR.png", true));
+			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
 
 			  
 
@@ -142,7 +144,23 @@ namespace MadHype {
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
 			e->Graphics->DrawImageUnscaled(map->getLocation(), map->getX(), map->getY());
-
+			
+			
+			for (int i = 0; i < map->getLine(); i++)
+			{
+				for (int j = 0; j < map->getColumn(); j++)
+				{
+					if (map->getMap()[i][j] == 2)
+					{
+						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 + map->getX(), j * 64 - 28 + map->getY());
+					}
+					else if (map->getMap()[i][j] == 3)
+					{
+						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + map->getX(), j * 64 - 28  + map->getY());
+					}
+				}
+			}
+			
 
 			if (flagChangeSpriteOfPlayer)
 			{
@@ -184,7 +202,7 @@ namespace MadHype {
 			{		
 				
 				int direct = arrow;
-
+				player->rotation(direct);
 				if (player->checkStop(direct, map->getMap()))
 				{
 					player->move(direct, 1);
@@ -238,6 +256,7 @@ namespace MadHype {
 
 		if (e->KeyValue == VK_SPACE)
 		{
+			map->openDoor(player->getDirect(), player->getX(), player->getY());
 
 		}
 
