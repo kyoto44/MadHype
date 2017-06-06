@@ -117,9 +117,10 @@ namespace MadHype {
 			// StartMenu
 			// 
 			this->BackColor = System::Drawing::Color::White;
-			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
-			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			//this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
+			//this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->Controls->Add(this->panel1);
+			this->DoubleBuffered = true;
 			this->Name = L"StartMenu";
 			this->Size = System::Drawing::Size(1024, 1024);
 			this->Load += gcnew System::EventHandler(this, &StartMenu::StartMenu_Load);

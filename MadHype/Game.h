@@ -142,8 +142,6 @@ namespace MadHype {
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
 			e->Graphics->DrawImageUnscaled(map->getLocation(), map->getX(), map->getY());
-		
-		
 
 
 			if (flagChangeSpriteOfPlayer)
