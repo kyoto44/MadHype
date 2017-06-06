@@ -116,13 +116,15 @@ namespace MadHype {
 
 			 
 
-			  int arrow = 0, timeChangeSpriteOfPlayer = 0;
+			  int arrow = 0, timeChangeSpriteOfPlayer = 0,numMap = 0;
 
 			  bool flagChangeSpriteOfPlayer = true;
 			  			
-			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Locations\\Location.png", true));
+			 // Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Locations\\Location.png", true));
 
 			  Player^ player = gcnew Player(1, 100, 100, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
+
+			  List <Map ^> ^maps = maps = gcnew List <Map ^>();
 
 			  
 
@@ -132,10 +134,11 @@ namespace MadHype {
 		this->backgroundWorker1->RunWorkerAsync();
 
 		
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt"));
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt"));
+		//map->setMap(map->readFileMap(".\\maps\\mapZal.txt"));
+
 		
-		map->setMap(map->readFileMap(".\\maps\\mapZal.txt"));
-
-
 
 	}
 
@@ -144,20 +147,20 @@ namespace MadHype {
 	protected:
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
-			e->Graphics->DrawImageUnscaled(map->getLocation(), map->getX(), map->getY());
+			e->Graphics->DrawImageUnscaled(maps[numMap]->getLocation(), maps[numMap]->getX(), maps[numMap]->getY());
 			
 			
-			for (int i = 0; i < map->getLine(); i++)
+			for (int i = 0; i < maps[numMap]->getLine(); i++)
 			{
-				for (int j = 0; j < map->getColumn(); j++)
+				for (int j = 0; j < maps[numMap]->getColumn(); j++)
 				{
-					if (map->getMap()[i][j] == 2)
+					if (maps[numMap]->getMap()[i][j] == 2)
 					{
-						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 + map->getX(), j * 64 - 28 + map->getY());
+						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
 					}
-					else if (map->getMap()[i][j] == -2)
+					else if (maps[numMap]->getMap()[i][j] == -2)
 					{
-						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + map->getX(), j * 64 - 28  + map->getY());
+						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28  + maps[numMap]->getY());
 					}
 				}
 			}
@@ -216,18 +219,48 @@ namespace MadHype {
 
 				int direct = arrow;
 				player->rotation(direct);
-				if (map->getMap()[player->getX()][player->getY()] == 3)
+				if (maps[numMap]->getMap()[player->getX()][player->getY()] == 3)
 				{
-					map->setLocation(gcnew Bitmap(".\\images\\Locations\\newLocation.png", true));
-					map->setMap(map->readFileMap(".\\maps\\newZal.txt"));
+					
+					
+					maps[numMap + 1]->setX(maps[numMap]->getX());
+					maps[numMap + 1]->setY(maps[numMap]->getY());
+					
+					numMap++;
+					
+					direct = 1;
+					
+					player->rotation(direct);
+					
+
 					this->Invalidate();
 				}
-				if (player->checkStop(direct, map->getMap()))
+				else if (maps[numMap]->getMap()[player->getX()][player->getY()] == -3)
 				{
+				
+
+					maps[numMap - 1]->setX(maps[numMap]->getX());
+					maps[numMap - 1]->setY(maps[numMap]->getY());
+
+					numMap--;
+
+					direct = 1;
+					
+					player->rotation(direct);
+					
+
+					this->Invalidate();
+				}
+				
+
+
+				if (player->checkStop(direct, maps[numMap]->getMap()))
+				{
+
 					player->move(direct, 1);
 					for (int i = 0; i < this->Width / 16; i++)
 					{
-						map->move(direct, 1);
+						maps[numMap]->move(direct, 1);
 						Sleep(5);
 						this->Invalidate();
 					}
@@ -275,7 +308,7 @@ namespace MadHype {
 
 		if (e->KeyValue == VK_SPACE)
 		{
-			map->openDoor(player->getDirect(), player->getX(), player->getY());
+			maps[numMap]->openDoor(player->getDirect(), player->getX(), player->getY());
 
 		}
 

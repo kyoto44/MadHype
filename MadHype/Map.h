@@ -13,12 +13,12 @@ ref class Map
 	
 
 public:
-	Map(int x, int y, Bitmap^ zal)
+	Map(int x, int y, Bitmap^ zal, const char *mapbin)
 	{
 		X = x;
 		Y = y;
 		Zal = zal;
-		
+		mapBin = readFileMap(mapbin);
 	}
 
 private:
@@ -30,8 +30,6 @@ private:
 	Bitmap^ Zal;
 
 	int** mapBin;
-
-	
 
 public:
 
