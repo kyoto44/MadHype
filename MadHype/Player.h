@@ -27,6 +27,7 @@ private:
 		X,
 		Y,
 		XP,
+		XPNeededToLVLUP=100,
 		direct;
 	Bitmap^ persL;
 	Bitmap^ persR;
@@ -80,7 +81,7 @@ public:
 
 	void setX(int x)
 	{
-		this->X = x;
+		X = x;
 	}
 
 	int getX() { return X; }
@@ -91,16 +92,26 @@ public:
 	}
 
 	int getY() { return Y; }
-
+	
 
 	void setXP(int x)
 	{
 		XP = x;
 	}
-
+	
  
 
 	int getXP() { return XP; }
+
+
+	 void setXPNeededToLVLUP(int x)
+	{
+		XPNeededToLVLUP = x;
+	}
+	
+	int getXPNeededToLVLUP() { return XPNeededToLVLUP; }
+
+	
 
 	int getDirect()
 	{
