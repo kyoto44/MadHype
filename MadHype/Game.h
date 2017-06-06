@@ -91,7 +91,7 @@ namespace MadHype {
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				 this->ClientSize = System::Drawing::Size(1024, 1024);
+				 this->ClientSize = System::Drawing::Size(1018, 999);
 				 this->DoubleBuffered = true;
 				 this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(204)));
@@ -120,7 +120,7 @@ namespace MadHype {
 
 			  bool flagChangeSpriteOfPlayer = true;
 			  			
-			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Location.png", true));
+			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Locations\\Location.png", true));
 
 			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
 
