@@ -144,7 +144,7 @@ namespace MadHype {
 		gameLife = true;
 		this->DestroyHandle();
 	}
-
+			 
 	private: System::Void Settings_Click(System::Object^  sender, System::EventArgs^  e) {
 
 

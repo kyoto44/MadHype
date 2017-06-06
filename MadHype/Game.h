@@ -32,6 +32,7 @@ namespace MadHype {
 	public:
 		Game(void)
 		{
+			InitializeMyComponent();
 			InitializeComponent();
 			//
 			//TODO: добавьте код конструктора
@@ -63,13 +64,19 @@ namespace MadHype {
 
 
 
-	private: StartMenu ^ startmenu = gcnew StartMenu();
+	private: StartMenu^ startmenu = gcnew StartMenu();
 
 #pragma region Windows Form Designer generated code
 			 /// <summary>
 			 /// “ребуемый метод дл€ поддержки конструктора Ч не измен€йте 
 			 /// содержимое этого метода с помощью редактора кода.
 			 /// </summary>
+			 void InitializeMyComponent(void)
+			 {
+				 this->startmenu = gcnew StartMenu();
+				 this->Controls->Add(startmenu);
+
+			 }
 			 void InitializeComponent(void)
 			 {
 				 this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
@@ -96,7 +103,6 @@ namespace MadHype {
 				 this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Game::Form1_KeyPress);
 				 this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyUp);
 				 this->ResumeLayout(false);
-
 			 }
 			 
 	public: 
