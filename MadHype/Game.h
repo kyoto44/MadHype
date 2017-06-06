@@ -155,7 +155,7 @@ namespace MadHype {
 					{
 						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 + map->getX(), j * 64 - 28 + map->getY());
 					}
-					else if (map->getMap()[i][j] == 3)
+					else if (map->getMap()[i][j] == -2)
 					{
 						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + map->getX(), j * 64 - 28  + map->getY());
 					}
@@ -216,6 +216,12 @@ namespace MadHype {
 
 				int direct = arrow;
 				player->rotation(direct);
+				if (map->getMap()[player->getX()][player->getY()] == 3)
+				{
+					map->setLocation(gcnew Bitmap(".\\images\\Locations\\newLocation.png", true));
+					map->setMap(map->readFileMap(".\\maps\\newZal.txt"));
+					this->Invalidate();
+				}
 				if (player->checkStop(direct, map->getMap()))
 				{
 					player->move(direct, 1);

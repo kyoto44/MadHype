@@ -160,8 +160,8 @@ public:
 		{
 			
 			if (mapBin[x][y + 1] == 2)
-				mapBin[x][y + 1] = 3;
-			else if (mapBin[x][y + 1] == 3)
+				mapBin[x][y + 1] = -2;
+			else if (mapBin[x][y + 1] == -2)
 				mapBin[x][y + 1] = 2;
 			break;
 			
@@ -170,8 +170,8 @@ public:
 		{
 
 			if (mapBin[x - 1][y] == 2)
-				mapBin[x - 1][y] = 3;
-			else if (mapBin[x - 1][y] == 3)
+				mapBin[x - 1][y] = -2;
+			else if (mapBin[x - 1][y] == -2)
 				mapBin[x - 1][y] = 2;
 			break;
 		}
@@ -179,8 +179,8 @@ public:
 		{
 
 			if (mapBin[x + 1][y] == 2)
-				mapBin[x + 1][y] = 3;
-			else if (mapBin[x + 1][y] == 3)
+				mapBin[x + 1][y] = -2;
+			else if (mapBin[x + 1][y] == -2)
 				mapBin[x + 1][y] = 2;
 
 			 
@@ -189,8 +189,8 @@ public:
 		case 4://вверх
 		{
 			if (mapBin[x][y - 1] == 2)
-				mapBin[x][y - 1] = 3;
-			else if (mapBin[x][y - 1] == 3)
+				mapBin[x][y - 1] = -2;
+			else if (mapBin[x][y - 1] == -2)
 				mapBin[x][y - 1] = 2;
 			break;
 		}

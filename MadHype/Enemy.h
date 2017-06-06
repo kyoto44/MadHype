@@ -5,7 +5,9 @@ public:
 
 	Enemy()
 	{
+
 	}
+
 };
 
 
