@@ -108,7 +108,7 @@ namespace MadHype {
 			 }
 			 
 	public: 
-			  System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 50.00F, FontStyle::Regular);
+			  System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
 			  Bitmap^ closeDoor = gcnew Bitmap(".\\images\\doors\\closedoor.png", true);
 
@@ -177,8 +177,14 @@ namespace MadHype {
 			
 
 			e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
-
 			e->Graphics->DrawString(Convert::ToString(player->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getHP()), osmain, gcnew SolidBrush(Color::Red), 800, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getMP()), osmain, gcnew SolidBrush(Color::Blue), 875, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getLevel()), osmain, gcnew SolidBrush(Color::Yellow), 950, 0);
+			e->Graphics->DrawString(Convert::ToString(player->getXP()), osmain, gcnew SolidBrush(Color::Yellow), 875, 50);
+			//e->Graphics->DrawString(String^ drob="/", osmain, gcnew SolidBrush(Color::Yellow), 910, 50);
+		    //e->Graphics->DrawString(Convert::ToString(player->getXPNeededToLVLUP()), osmain, gcnew SolidBrush(Color::Yellow), 950, 50);
+
 
 
 			if (timeChangeSpriteOfPlayer == 20)
