@@ -98,6 +98,8 @@ public:
 		XP = x;
 	}
 
+ 
+
 	int getXP() { return XP; }
 
 	int getDirect()
