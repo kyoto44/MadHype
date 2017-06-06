@@ -122,7 +122,7 @@ namespace MadHype {
 			  			
 			  Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Locations\\Location.png", true));
 
-			  Player^ player = gcnew Player(0, 50, 50, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
+			  Player^ player = gcnew Player(1, 100, 100, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
 
 			  
 
