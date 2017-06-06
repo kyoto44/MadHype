@@ -91,12 +91,13 @@ namespace MadHype {
 				 // 
 				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				 this->ClientSize = System::Drawing::Size(1024, 1024);
+				 this->ClientSize = System::Drawing::Size(1008, 985);
 				 this->DoubleBuffered = true;
 				 this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(204)));
 				 this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 				 this->Name = L"Game";
+				 this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 				 this->Text = L"Game";
 				 this->Load += gcnew System::EventHandler(this, &Game::Form1_Load);
 				 this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyDown);
