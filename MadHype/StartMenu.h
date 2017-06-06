@@ -120,9 +120,9 @@ namespace MadHype {
 			this->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"$this.BackgroundImage")));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->Controls->Add(this->panel1);
-			this->Location = System::Drawing::Point(10, 10);
 			this->Name = L"StartMenu";
-			this->Size = System::Drawing::Size(1034, 1038);
+			this->Size = System::Drawing::Size(1024, 1024);
+			this->Load += gcnew System::EventHandler(this, &StartMenu::StartMenu_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->ResumeLayout(false);
@@ -153,6 +153,8 @@ namespace MadHype {
 	private: System::Void Exit_Click(System::Object^  sender, System::EventArgs^  e) {
 
 	
+}
+private: System::Void StartMenu_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
