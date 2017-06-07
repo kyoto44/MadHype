@@ -13,25 +13,37 @@ ref class Map
 	
 
 public:
-	Map(int x, int y, Bitmap^ zal, const char *mapbin)
+	Map(int x, int y, Bitmap^ zal, const char *mapbin,int startxplayer,int startyplayer)
 	{
 		X = x;
 		Y = y;
 		Zal = zal;
 		mapBin = readFileMap(mapbin);
+		startxPlayer = startxplayer;
+		startyPlayer = startyplayer;
 	}
 
 private:
 	int X,
 		Y,
 		column,
-		line;
-		;
+		line,
+		startxPlayer,
+		startyPlayer;
 	Bitmap^ Zal;
 
 	int** mapBin;
 
 public:
+
+	int getStartxPlayer() {
+		return startxPlayer;
+	}
+
+	int getStartyPlayer()
+	{
+		return startyPlayer;
+	}
 
 	int getColumn() {
 		return column;

@@ -120,8 +120,6 @@ namespace MadHype {
 
 			  bool flagChangeSpriteOfPlayer = true;
 			  			
-			 // Map^ map = gcnew Map(0,0, gcnew Bitmap(".\\images\\Locations\\Location.png", true));
-
 			  Player^ player = gcnew Player(1, 100, 100, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
 
 			  List <Map ^> ^maps = maps = gcnew List <Map ^>();
@@ -134,9 +132,9 @@ namespace MadHype {
 		this->backgroundWorker1->RunWorkerAsync();
 
 		
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt"));
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt"));
-		//map->setMap(map->readFileMap(".\\maps\\mapZal.txt"));
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt",17,7));
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt",8,8));
+			
 
 		
 
@@ -223,13 +221,19 @@ namespace MadHype {
 				{
 					
 					
-					maps[numMap + 1]->setX(maps[numMap]->getX());
-					maps[numMap + 1]->setY(maps[numMap]->getY());
+					//maps[numMap + 1]->setX(maps[numMap]->getX());
+					//maps[numMap + 1]->setY(maps[numMap]->getY());
 					
 					numMap++;
 					
 					direct = 1;
-					
+			
+					player->setX(maps[numMap]->getStartxPlayer());
+
+					player->setY(maps[numMap]->getStartyPlayer());
+
+					maps[numMap]->getMap()[player->getX()][player->getY()] = -3;
+
 					player->rotation(direct);
 					
 
@@ -239,13 +243,17 @@ namespace MadHype {
 				{
 				
 
-					maps[numMap - 1]->setX(maps[numMap]->getX());
-					maps[numMap - 1]->setY(maps[numMap]->getY());
+					//maps[numMap - 1]->setX(maps[numMap]->getX());
+					//maps[numMap - 1]->setY(maps[numMap]->getY());
 
 					numMap--;
 
 					direct = 1;
+
+					player->setX(maps[numMap]->getStartxPlayer());
 					
+					player->setY(maps[numMap]->getStartyPlayer());
+
 					player->rotation(direct);
 					
 
