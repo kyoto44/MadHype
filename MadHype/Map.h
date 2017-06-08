@@ -1,19 +1,21 @@
-#pragma once
+п»ї#pragma once
 
 
 #include <fstream>
+#include <string>
 
 
 using namespace System;
 using namespace System::Drawing;
-
+using namespace System::Collections::Generic;
+using namespace System::IO;
 
 ref class Map
 {
-	
+
 
 public:
-	Map(int x, int y, Bitmap^ zal, const char *mapbin,int startxplayer,int startyplayer)
+	Map(int x, int y, Bitmap^ zal, const char *mapbin, int startxplayer, int startyplayer)
 	{
 		X = x;
 		Y = y;
@@ -32,7 +34,8 @@ private:
 		startyPlayer;
 	Bitmap^ Zal;
 
-	int** mapBin;
+	
+	char** mapBin;
 
 public:
 
@@ -54,37 +57,40 @@ public:
 		return line;
 	}
 
-	int** readFileMap(const char *name)		
+	char** readFileMap(const char *name)
 	{
+		
 
-
-		std::ifstream file;
-
-		file.open(name);
+		std::ifstream file(name);
+		char c;
 
 		int x, y;
 		file >> x;
-		
+	
 		file >> y;
-
+		
+		
 		column = x;
 		line = y;
 
-		int** mass = new int*[x];
+		char** mass = new char*[column];
 
-		for (int i = 0; i < x; i++) mass[i] = new int[y];
-
-		for (int j = 0; j < y; j++)
+		for (int i = 0; i < column; i++) mass[i] = new char[line];
+		
+		
+		for (int j = 0; j < line; j++)
+		
 		{
-			for (int i = 0; i < x; i++)
+			for (int i = 0; i < column; i++)
+			
 			{
-				
-				file >> mass[i][j];
-				
+			
+					file >> mass[i][j];
 			}
 		}
 
 		file.close();
+
 		return mass;
 
 	}
@@ -103,12 +109,12 @@ public:
 	}
 
 
-	void setMap(int** x)
+	void setMap(char** x)
 	{
 		mapBin = x;
 	}
 
-	int** getMap() { return mapBin; }
+	char** getMap() { return mapBin; }
 
 	void setX(int x)
 	{
@@ -124,33 +130,33 @@ public:
 
 	int getY() { return Y; }
 
-	
+
 	void move(int Direct, int Speed)
 	{
 		switch (Direct)
 		{
-		case 1: //вниз
+		case 1: //ГўГ­ГЁГ§
 		{
-		
-				Y -= Speed;
+
+			Y -= Speed;
 			break;
 		}
-		case 2: //влево
+		case 2: //ГўГ«ГҐГўГ®
 		{
-		
-				X += Speed;
+
+			X += Speed;
 			break;
 		}
-		case 3: //вправо
+		case 3: //ГўГЇГ°Г ГўГ®
 		{
-			
-				X -= Speed;
+
+			X -= Speed;
 			break;
 		}
-		case 4://вверх
+		case 4://ГўГўГҐГ°Гµ
 		{
-			
-				Y += Speed;
+
+			Y += Speed;
 			break;
 		}
 		default:
@@ -162,46 +168,48 @@ public:
 
 	}
 
-	void openDoor(int Direct,int x, int y)
+	void openDoor(int Direct, int x, int y)
 	{
 		switch (Direct)
 		{
-		case 1: //вниз
-		{
-			
-			if (mapBin[x][y + 1] == 2)
-				mapBin[x][y + 1] = -2;
-			else if (mapBin[x][y + 1] == -2)
-				mapBin[x][y + 1] = 2;
-			break;
-			
-		}
-		case 2: //влево
+		case 1: //ГўГ­ГЁГ§
 		{
 
-			if (mapBin[x - 1][y] == 2)
-				mapBin[x - 1][y] = -2;
-			else if (mapBin[x - 1][y] == -2)
-				mapBin[x - 1][y] = 2;
+			if (mapBin[x][y + 1] == 'd')
+				mapBin[x][y + 1] = 'D';
+			else if (mapBin[x][y + 1] == 'D')
+				mapBin[x][y + 1] = 'd';
 			break;
+
 		}
-		case 3: //вправо
+		case 2: //ГўГ«ГҐГўГ®
 		{
 
-			if (mapBin[x + 1][y] == 2)
-				mapBin[x + 1][y] = -2;
-			else if (mapBin[x + 1][y] == -2)
-				mapBin[x + 1][y] = 2;
 
-			 
+			if (mapBin[x - 1][y] == 'd')
+				mapBin[x - 1][y] = 'D';
+			else if (mapBin[x - 1][y] == 'D')
+				mapBin[x - 1][y ] = 'd';
 			break;
 		}
-		case 4://вверх
+		case 3: //ГўГЇГ°Г ГўГ®
 		{
-			if (mapBin[x][y - 1] == 2)
-				mapBin[x][y - 1] = -2;
-			else if (mapBin[x][y - 1] == -2)
-				mapBin[x][y - 1] = 2;
+
+			if (mapBin[x + 1][y] == 'd')
+				mapBin[x + 1][y] = 'D';
+			else if (mapBin[x + 1][y] == 'D')
+				mapBin[x + 1][y ] = 'd';
+			break;
+
+
+			break;
+		}
+		case 4://ГўГўГҐГ°Гµ
+		{
+			if (mapBin[x][y - 1] == 'd')
+				mapBin[x][y - 1] = 'D';
+			else if (mapBin[x][y - 1] == 'D')
+				mapBin[x][y - 1] = 'd';
 			break;
 		}
 		default:
@@ -220,4 +228,3 @@ public:
 
 
 };
-

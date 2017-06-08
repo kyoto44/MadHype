@@ -1,3 +1,4 @@
+п»ї
 #pragma once
 
 
@@ -9,7 +10,7 @@
 #include <fstream>
 #include "StartMenu.h"
 
-namespace MadHype {
+	namespace MadHype {
 
 
 	using namespace System;
@@ -22,10 +23,10 @@ namespace MadHype {
 	using namespace System::Collections::Generic;
 	using namespace System::Configuration;
 	using namespace System::Media;
-	
+
 
 	/// <summary>
-	/// Сводка для Game
+	/// Г‘ГўГ®Г¤ГЄГ  Г¤Г«Гї Game
 	/// </summary>
 	public ref class Game : public System::Windows::Forms::Form
 	{
@@ -35,13 +36,13 @@ namespace MadHype {
 			InitializeMyComponent();
 			InitializeComponent();
 			//
-			//TODO: добавьте код конструктора
+			//TODO: Г¤Г®ГЎГ ГўГјГІГҐ ГЄГ®Г¤ ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г 
 			//
 		}
 
 	protected:
 		/// <summary>
-		/// Освободить все используемые ресурсы.
+		/// ГЋГ±ГўГ®ГЎГ®Г¤ГЁГІГј ГўГ±ГҐ ГЁГ±ГЇГ®Г«ГјГ§ГіГҐГ¬Г»ГҐ Г°ГҐГ±ГіГ°Г±Г».
 		/// </summary>
 		~Game()
 		{
@@ -53,7 +54,7 @@ namespace MadHype {
 
 	private:
 		/// <summary>
-		/// Обязательная переменная конструктора.
+		/// ГЋГЎГїГ§Г ГІГҐГ«ГјГ­Г Гї ГЇГҐГ°ГҐГ¬ГҐГ­Г­Г Гї ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г .
 		/// </summary>
 
 
@@ -68,8 +69,8 @@ namespace MadHype {
 
 #pragma region Windows Form Designer generated code
 			 /// <summary>
-			 /// Требуемый метод для поддержки конструктора — не изменяйте 
-			 /// содержимое этого метода с помощью редактора кода.
+			 /// Г’Г°ГҐГЎГіГҐГ¬Г»Г© Г¬ГҐГІГ®Г¤ Г¤Г«Гї ГЇГ®Г¤Г¤ГҐГ°Г¦ГЄГЁ ГЄГ®Г­Г±ГІГ°ГіГЄГІГ®Г°Г  вЂ” Г­ГҐ ГЁГ§Г¬ГҐГ­ГїГ©ГІГҐ 
+			 /// Г±Г®Г¤ГҐГ°Г¦ГЁГ¬Г®ГҐ ГЅГІГ®ГЈГ® Г¬ГҐГІГ®Г¤Г  Г± ГЇГ®Г¬Г®Г№ГјГѕ Г°ГҐГ¤Г ГЄГІГ®Г°Г  ГЄГ®Г¤Г .
 			 /// </summary>
 			 void InitializeMyComponent(void)
 			 {
@@ -106,77 +107,88 @@ namespace MadHype {
 				 this->ResumeLayout(false);
 
 			 }
-			 
-	public: 
-			  System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
-			  Bitmap^ closeDoor = gcnew Bitmap(".\\images\\doors\\closedoor.png", true);
+	public:
+		System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
-			  Bitmap^ openDoor = gcnew Bitmap(".\\images\\doors\\opendoor.png", true);
+		Bitmap^ closeDoor = gcnew Bitmap(".\\images\\doors\\closedoor.png", true);
 
-			 
+		Bitmap^ openDoor = gcnew Bitmap(".\\images\\doors\\opendoor.png", true);
 
-			  int arrow = 0, timeChangeSpriteOfPlayer = 0,numMap = 0;
 
-			  bool flagChangeSpriteOfPlayer = true;
-			  			
-			  Player^ player = gcnew Player(1, 100, 100, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
 
-			  List <Map ^> ^maps = maps = gcnew List <Map ^>();
+		int arrow = 0, timeChangeSpriteOfPlayer = 0, numMap = 1;
 
-			  
+		bool flagChangeSpriteOfPlayer = true;
+
+		Player^ player = gcnew Player(1, 100, 100, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
+
+		List <Map ^> ^maps = maps = gcnew List <Map ^>();
+
+
 
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 
 		this->backgroundWorker1->WorkerReportsProgress = true;
 		this->backgroundWorker1->RunWorkerAsync();
 
-		
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt",17,7));
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt",8,8));
-			
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt", 8, 13));
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt", 8, 8));
+	
 
-		
+
+
 
 	}
 
-	
+
 
 	protected:
 		virtual void OnPaint(PaintEventArgs^ e) override
 		{
 			e->Graphics->DrawImageUnscaled(maps[numMap]->getLocation(), maps[numMap]->getX(), maps[numMap]->getY());
-			
-			
-			for (int i = 0; i < maps[numMap]->getLine(); i++)
+
+
+			for (int i = 0; i < maps[numMap]->getColumn(); i++)
 			{
-				for (int j = 0; j < maps[numMap]->getColumn(); j++)
+				for (int j = 0; j < maps[numMap]->getLine(); j++)
 				{
-					if (maps[numMap]->getMap()[i][j] == 2)
+
+
+					/*
+					if (maps[numMap]->getMap()[i][j] == 'w')
+						e->Graphics->DrawString("w", osmain, gcnew SolidBrush(Color::Black), i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
+					if (maps[numMap]->getMap()[i][j] == 'o')
+						e->Graphics->DrawString("o", osmain, gcnew SolidBrush(Color::Black), i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
+						*/
+
+					if (maps[numMap]->getMap()[i][j] == 'd')
 					{
 						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
 					}
-					else if (maps[numMap]->getMap()[i][j] == -2)
+					else if (maps[numMap]->getMap()[i][j] == 'D')
 					{
-						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28  + maps[numMap]->getY());
+						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
 					}
 				}
 			}
-			
+
 
 			if (flagChangeSpriteOfPlayer)
 			{
-				e->Graphics->DrawImage(player->getPersL(), this->Width/2, this->Width / 2,this->Width/16, this->Width / 16);
+				e->Graphics->DrawImage(player->getPersL(), this->Width / 2, this->Height / 2, this->Width / 16, this->Width / 16);
 
 			}
 			else
 			{
-				e->Graphics->DrawImage(player->getPersR(), this->Width / 2, this->Width / 2, this->Width / 16, this->Width / 16);
+				e->Graphics->DrawImage(player->getPersR(), this->Width / 2, this->Height / 2, this->Width / 16, this->Width / 16);
 
 			}
 
-			
-		
+
+			//e->Graphics->DrawString(Convert::ToString(maps[numMap]->getColumn()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
+			//e->Graphics->DrawString(Convert::ToString(maps[numMap]->getLine()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
+
 
 			e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
 			e->Graphics->DrawString(Convert::ToString(player->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
@@ -205,10 +217,10 @@ namespace MadHype {
 		while (true)
 		{
 			bool gameLife = startmenu->GameLife();
-			
+
 			while (gameLife)
-			{		
-				
+			{
+
 				if (player->getXP() > player->getXPNeededToLVLUP())
 				{
 					player->setXP(0);
@@ -217,51 +229,45 @@ namespace MadHype {
 
 				int direct = arrow;
 				player->rotation(direct);
-				if (maps[numMap]->getMap()[player->getX()][player->getY()] == 3)
+				if (maps[numMap]->getMap()[player->getX()][player->getY()] == '3')
 				{
-					
-					
-					//maps[numMap + 1]->setX(maps[numMap]->getX());
-					//maps[numMap + 1]->setY(maps[numMap]->getY());
-					
+
+
 					numMap++;
-					
+					  
 					direct = 1;
-			
+
 					player->setX(maps[numMap]->getStartxPlayer());
 
 					player->setY(maps[numMap]->getStartyPlayer());
 
-					maps[numMap]->getMap()[player->getX()][player->getY()] = -3;
+					maps[numMap]->getMap()[player->getX()][player->getY()] = '4';
 
 					player->rotation(direct);
-					
+
 
 					this->Invalidate();
 				}
-				else if (maps[numMap]->getMap()[player->getX()][player->getY()] == -3)
+				else if (maps[numMap]->getMap()[player->getX()][player->getY()] == '4')
 				{
-				
 
-					//maps[numMap - 1]->setX(maps[numMap]->getX());
-					//maps[numMap - 1]->setY(maps[numMap]->getY());
 
 					numMap--;
 
 					direct = 1;
 
 					player->setX(maps[numMap]->getStartxPlayer());
-					
+
 					player->setY(maps[numMap]->getStartyPlayer());
 
 					player->rotation(direct);
-					
+
 
 					this->Invalidate();
 				}
+
+
 				
-
-
 				if (player->checkStop(direct, maps[numMap]->getMap()))
 				{
 
@@ -281,10 +287,10 @@ namespace MadHype {
 		}
 	}
 
-	private: System::Void backgroundWorker1_ProgressChanged(System::Object^  sender, System::ComponentModel::ProgressChangedEventArgs^  e) 
-	 {
+	private: System::Void backgroundWorker1_ProgressChanged(System::Object^  sender, System::ComponentModel::ProgressChangedEventArgs^  e)
+	{
 
-	 }
+	}
 	private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
 
 
@@ -294,23 +300,23 @@ namespace MadHype {
 
 		if (e->KeyValue == VK_DOWN)
 		{
-			
+
 			arrow = 1;
 		}
 		if (e->KeyValue == VK_LEFT)
-		{	
+		{
 			arrow = 2;
 		}
 
 		if (e->KeyValue == VK_RIGHT)
 		{
-			
+
 			arrow = 3;
 		}
 
 		if (e->KeyValue == VK_UP)
 		{
-			
+
 			arrow = 4;
 		}
 
@@ -322,7 +328,7 @@ namespace MadHype {
 
 	}
 
-	
+
 	private: System::Void Form1_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 		if (e->KeyValue == VK_DOWN)
 		{
@@ -347,6 +353,6 @@ namespace MadHype {
 		}
 	}
 
-			
+
 	};
 }

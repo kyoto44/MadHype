@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 
 
 using namespace System::Drawing;
@@ -6,9 +6,9 @@ using namespace System::Drawing;
 
 ref class Player
 {
-	
+
 public:
-	Player(int level, int hp, int mp, int x, int y, int xp,Bitmap^ persl, Bitmap^ persr)
+	Player(int level, int hp, int mp, int x, int y, int xp, Bitmap^ persl, Bitmap^ persr)
 	{
 		Level = level;
 		HP = hp;
@@ -22,12 +22,12 @@ public:
 
 private:
 	int Level,
-		HP,	
+		HP,
 		MP,
 		X,
 		Y,
 		XP,
-		XPNeededToLVLUP=100,
+		XPNeededToLVLUP = 100,
 		direct;
 	Bitmap^ persL;
 	Bitmap^ persR;
@@ -92,63 +92,63 @@ public:
 	}
 
 	int getY() { return Y; }
-	
+
 
 	void setXP(int x)
 	{
 		XP = x;
 	}
-	
- 
+
+
 
 	int getXP() { return XP; }
 
 
-	 void setXPNeededToLVLUP(int x)
+	void setXPNeededToLVLUP(int x)
 	{
 		XPNeededToLVLUP = x;
 	}
-	
+
 	int getXPNeededToLVLUP() { return XPNeededToLVLUP; }
 
-	
+
 
 	int getDirect()
 	{
 		return direct;
 	}
 
-	bool checkStop(int Direct, int** Map)
+	bool checkStop(int Direct, char** Map)
 	{
-		
+
 
 		switch (Direct)
 		{
-		case 1: //вниз
+		case 1: //ГўГ­ГЁГ§
 		{
-			if (Map[X][Y + 1] == 1 || Map[X][Y + 1] == 2)
+			if (Map[X][Y + 1] == 'w' || Map[X][Y + 1] == 'd')
 				return false;
 			break;
 
 		}
-		case 2: //влево
-		{
-			
-			if (Map[X - 1][Y] == 1 || Map[X - 1][Y] == 2)
-				return false;
-			break;
-		}
-		case 3: //вправо
+		case 2: //ГўГ«ГҐГўГ®
 		{
 
-			if (Map[X + 1][Y] == 1 || Map[X + 1][Y] == 2)
+			if (Map[X - 1][Y] == 'w' || Map[X - 1][Y] == 'd')
 				return false;
 			break;
 		}
-		case 4://вверх
+		case 3: //ГўГЇГ°Г ГўГ®
 		{
-			
-			if (Map[X][Y - 1] == 1 || Map[X][Y - 1] == 2)
+
+			if (Map[X + 1][Y] == 'w' || Map[X + 1][Y] == 'd')
+				return false;
+			break;
+		}
+		case 4://ГўГўГҐГ°Гµ
+		{
+
+			if (Map[X][Y - 1] == 'w' || Map[X][Y - 1] == 'd')
 				return false;
 			break;
 		}
@@ -166,7 +166,7 @@ public:
 	{
 		switch (Direct)
 		{
-		case 1: //вниз
+		case 1: //ГўГ­ГЁГ§
 		{
 
 
@@ -177,7 +177,7 @@ public:
 
 
 		}
-		case 2: //влево
+		case 2: //ГўГ«ГҐГўГ®
 		{
 			setPersL(gcnew Bitmap(".\\images\\pers\\persSL.png", true));
 			setPersR(gcnew Bitmap(".\\images\\pers\\persSLM.png", true));
@@ -185,7 +185,7 @@ public:
 
 			break;
 		}
-		case 3: //вправо
+		case 3: //ГўГЇГ°Г ГўГ®
 		{
 			setPersL(gcnew Bitmap(".\\images\\pers\\persSR.png", true));
 			setPersR(gcnew Bitmap(".\\images\\pers\\persSRM.png", true));
@@ -193,11 +193,11 @@ public:
 
 			break;
 		}
-		case 4://вверх
+		case 4://ГўГўГҐГ°Гµ
 		{
 			setPersL(gcnew Bitmap(".\\images\\pers\\persBL.png", true));
 			setPersR(gcnew Bitmap(".\\images\\pers\\persBR.png", true));
-			direct = 4; 
+			direct = 4;
 
 			break;
 		}
@@ -212,22 +212,22 @@ public:
 	{
 		switch (Direct)
 		{
-		case 1: //вниз
+		case 1: //ГўГ­ГЁГ§
 		{
 			Y += Speed;
 			break;
 		}
-		case 2: //влево
+		case 2: //ГўГ«ГҐГўГ®
 		{
 			X -= Speed;
 			break;
 		}
-		case 3: //вправо
+		case 3: //ГўГЇГ°Г ГўГ®
 		{
 			X += Speed;
 			break;
 		}
-		case 4://вверх
+		case 4://ГўГўГҐГ°Гµ
 		{
 			Y -= Speed;
 			break;
@@ -247,7 +247,4 @@ public:
 
 
 
-	};
-
-
-
+};
