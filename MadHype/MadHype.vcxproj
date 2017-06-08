@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <ClCompile Include="StartMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="Map.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="Settings.h">
+      <FileType>CppControl</FileType>
+    </ClInclude>
     <ClInclude Include="StartMenu.h">
       <FileType>CppControl</FileType>
     </ClInclude>

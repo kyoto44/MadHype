@@ -85,7 +85,7 @@ namespace MadHype {
 			this->panel1->Controls->Add(this->Exit);
 			this->panel1->Controls->Add(this->Settings);
 			this->panel1->Controls->Add(this->Play);
-			this->panel1->Location = System::Drawing::Point(286, 276);
+			this->panel1->Location = System::Drawing::Point(374, 393);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(283, 165);
 			this->panel1->TabIndex = 1;
@@ -132,7 +132,6 @@ namespace MadHype {
 		}
 #pragma endregion
 	
-
 	public:
 		bool gameLife = false;
 
@@ -154,7 +153,7 @@ namespace MadHype {
 
 	private: System::Void Exit_Click(System::Object^  sender, System::EventArgs^  e) {
 
-	
+		Application::Exit();
 }
 private: System::Void StartMenu_Load(System::Object^  sender, System::EventArgs^  e) {
 }
