@@ -15,11 +15,12 @@ ref class Map
 
 
 public:
-	Map(int x, int y, Bitmap^ zal, const char *mapbin, int startxplayer, int startyplayer)
+	Map(int x, int y, Bitmap^ zal,Bitmap^ front, const char *mapbin, int startxplayer, int startyplayer)
 	{
 		X = x;
 		Y = y;
 		Zal = zal;
+		Front = front;
 		mapBin = readFileMap(mapbin);
 		startxPlayer = startxplayer;
 		startyPlayer = startyplayer;
@@ -33,6 +34,7 @@ private:
 		startxPlayer,
 		startyPlayer;
 	Bitmap^ Zal;
+	Bitmap^ Front;
 
 	
 	char** mapBin;
@@ -104,6 +106,18 @@ public:
 	void setLocation(Bitmap^ x)
 	{
 		Zal = x;
+
+
+	}
+
+	Bitmap^ getFront()
+	{
+		return Front;
+	}
+
+	void setFront(Bitmap^ x)
+	{
+		Front = x;
 
 
 	}

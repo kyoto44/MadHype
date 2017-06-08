@@ -133,10 +133,10 @@
 		this->backgroundWorker1->RunWorkerAsync();
 
 		
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt", 8, 8));
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt", 8, 13));
-	
-
+		
+		
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal2.txt", 7, 7));
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal.txt", 11, 18));
 
 
 
@@ -166,11 +166,11 @@
 
 					if (maps[numMap]->getMap()[i][j] == 'd')
 					{
-						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
+						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 - 28 + maps[numMap]->getX(), j * 64 + maps[numMap]->getY());
 					}
 					else if (maps[numMap]->getMap()[i][j] == 'D')
 					{
-						e->Graphics->DrawImageUnscaled(openDoor, i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
+						e->Graphics->DrawImageUnscaled(openDoor, i * 64 - 28 + maps[numMap]->getX(), j * 64 + maps[numMap]->getY());
 					}
 				}
 			}
@@ -211,6 +211,7 @@
 			}
 			else
 				timeChangeSpriteOfPlayer++;
+			e->Graphics->DrawImageUnscaled(maps[numMap]->getFront(), maps[numMap]->getX(), maps[numMap]->getY());
 		}
 
 #pragma endregion
@@ -246,7 +247,7 @@
 
 					maps[numMap]->getMap()[player->getX()][player->getY()] = 's';
 
-				//	maps[numMap]->move(direct, );
+				
 
 					player->rotation(direct);
 
@@ -260,7 +261,7 @@
 					numMap--;
 
 					direct = 1;
-
+						
 					player->setX(maps[numMap]->getStartxPlayer());
 
 					player->setY(maps[numMap]->getStartyPlayer());
