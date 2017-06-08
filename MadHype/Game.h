@@ -132,8 +132,9 @@
 		this->backgroundWorker1->WorkerReportsProgress = true;
 		this->backgroundWorker1->RunWorkerAsync();
 
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt", 8, 13));
+		
 		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), ".\\maps\\mapZal2.txt", 8, 8));
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), ".\\maps\\mapZal.txt", 8, 13));
 	
 
 
@@ -155,12 +156,13 @@
 				{
 
 
+					
 					/*
 					if (maps[numMap]->getMap()[i][j] == 'w')
 						e->Graphics->DrawString("w", osmain, gcnew SolidBrush(Color::Black), i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
 					if (maps[numMap]->getMap()[i][j] == 'o')
 						e->Graphics->DrawString("o", osmain, gcnew SolidBrush(Color::Black), i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
-						*/
+					*/
 
 					if (maps[numMap]->getMap()[i][j] == 'd')
 					{
@@ -229,7 +231,8 @@
 
 				int direct = arrow;
 				player->rotation(direct);
-				if (maps[numMap]->getMap()[player->getX()][player->getY()] == '3')
+				
+				if (maps[numMap]->getMap()[player->getX()][player->getY()] == 'S')
 				{
 
 
@@ -241,14 +244,16 @@
 
 					player->setY(maps[numMap]->getStartyPlayer());
 
-					maps[numMap]->getMap()[player->getX()][player->getY()] = '4';
+					maps[numMap]->getMap()[player->getX()][player->getY()] = 's';
+
+				//	maps[numMap]->move(direct, );
 
 					player->rotation(direct);
 
 
 					this->Invalidate();
 				}
-				else if (maps[numMap]->getMap()[player->getX()][player->getY()] == '4')
+				else if (maps[numMap]->getMap()[player->getX()][player->getY()] == 's')
 				{
 
 
