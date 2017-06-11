@@ -126,7 +126,7 @@ public:
 		{
 		case 1: //âíèç
 		{
-			if (Map[X][Y + 1] == 'w' || Map[X][Y + 1] == 'd')
+			if (Map[X][Y + 1] == 'w' || Map[X][Y + 1] == 'd' || Map[X][Y + 1] == 'r')
 				return false;
 			break;
 
@@ -134,21 +134,21 @@ public:
 		case 2: //âëåâî
 		{
 
-			if (Map[X - 1][Y] == 'w' || Map[X - 1][Y] == 'd')
+			if (Map[X - 1][Y] == 'w' || Map[X - 1][Y] == 'd' || Map[X - 1][Y] == 'r')
 				return false;
 			break;
 		}
 		case 3: //âïðàâî
 		{
 
-			if (Map[X + 1][Y] == 'w' || Map[X + 1][Y] == 'd')
+			if (Map[X + 1][Y] == 'w' || Map[X + 1][Y] == 'd' || Map[X + 1][Y] == 'r')
 				return false;
 			break;
 		}
 		case 4://ââåðõ
 		{
 
-			if (Map[X][Y - 1] == 'w' || Map[X][Y - 1] == 'd')
+			if (Map[X][Y - 1] == 'w' || Map[X][Y - 1] == 'd' || Map[X][Y - 1] == 'r')
 				return false;
 			break;
 		}

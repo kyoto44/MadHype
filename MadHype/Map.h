@@ -193,6 +193,11 @@ public:
 				mapBin[x][y + 1] = 'D';
 			else if (mapBin[x][y + 1] == 'D')
 				mapBin[x][y + 1] = 'd';
+
+			if (mapBin[x][y + 1] == 'r')
+				mapBin[x][y + 1] = 'R';
+			else if (mapBin[x][y + 1] == 'R')
+				mapBin[x][y + 1] = 'r';
 			break;
 
 		}
@@ -204,6 +209,11 @@ public:
 				mapBin[x - 1][y] = 'D';
 			else if (mapBin[x - 1][y] == 'D')
 				mapBin[x - 1][y ] = 'd';
+
+			if (mapBin[x - 1][y] == 'r')
+				mapBin[x - 1][y] = 'R';
+			else if (mapBin[x - 1][y] == 'R')
+				mapBin[x - 1][y] = 'r';
 			break;
 		}
 		case 3: //âïðàâî
@@ -213,10 +223,13 @@ public:
 				mapBin[x + 1][y] = 'D';
 			else if (mapBin[x + 1][y] == 'D')
 				mapBin[x + 1][y ] = 'd';
+
+			if (mapBin[x + 1][y] == 'r')
+				mapBin[x + 1][y] = 'R';
+			else if (mapBin[x + 1][y] == 'R')
+				mapBin[x + 1][y] = 'r';
 			break;
 
-
-			break;
 		}
 		case 4://ââåðõ
 		{
@@ -224,6 +237,11 @@ public:
 				mapBin[x][y - 1] = 'D';
 			else if (mapBin[x][y - 1] == 'D')
 				mapBin[x][y - 1] = 'd';
+
+			if (mapBin[x][y - 1] == 'r')
+				mapBin[x][y - 1] = 'R';
+			else if (mapBin[x][y - 1] == 'R')
+				mapBin[x][y - 1] = 'r';
 			break;
 		}
 		default:

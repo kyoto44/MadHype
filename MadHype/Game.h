@@ -116,12 +116,17 @@
 		Bitmap^ openDoor = gcnew Bitmap(".\\images\\doors\\opendoor.png", true);
 
 
+		Bitmap^ closeDoorR = gcnew Bitmap(".\\images\\doors\\closedoorR.png", true);
+
+		Bitmap^ openDoorR = gcnew Bitmap(".\\images\\doors\\opendoorR.png", true);
+
+
 
 		int arrow = 0, timeChangeSpriteOfPlayer = 0, numMap = 1;
 
 		bool flagChangeSpriteOfPlayer = true;
 
-		Player^ player = gcnew Player(1, 100, 100, 8, 8, 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
+		Player^ player;
 
 		List <Map ^> ^maps = maps = gcnew List <Map ^>();
 
@@ -135,11 +140,15 @@
 		
 		
 		
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal2.txt", 7, 7));
-		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal.txt", 11, 18));
+
+		
+		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal2.txt", 8, 8));
+		maps->Add(gcnew Map(0,0, gcnew Bitmap(".\\images\\Locations\\Location.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal.txt", 8, 8));
 
 
 
+
+		player = gcnew Player(1, 100, 100, maps[numMap]->getStartxPlayer(), maps[numMap]->getStartyPlayer(), 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
 	}
 
 
@@ -155,22 +164,28 @@
 				for (int j = 0; j < maps[numMap]->getLine(); j++)
 				{
 
-
-					
-					/*
-					if (maps[numMap]->getMap()[i][j] == 'w')
-						e->Graphics->DrawString("w", osmain, gcnew SolidBrush(Color::Black), i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
-					if (maps[numMap]->getMap()[i][j] == 'o')
-						e->Graphics->DrawString("o", osmain, gcnew SolidBrush(Color::Black), i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
-					*/
-
 					if (maps[numMap]->getMap()[i][j] == 'd')
 					{
+						//closeDoor->RotateFlip(System::Drawing::RotateFlipType::Rotate180FlipX);
 						e->Graphics->DrawImageUnscaled(closeDoor, i * 64 - 28 + maps[numMap]->getX(), j * 64 + maps[numMap]->getY());
+						
 					}
 					else if (maps[numMap]->getMap()[i][j] == 'D')
 					{
+						//openDoor->RotateFlip(System::Drawing::RotateFlipType::Rotate180FlipX);
 						e->Graphics->DrawImageUnscaled(openDoor, i * 64 - 28 + maps[numMap]->getX(), j * 64 + maps[numMap]->getY());
+					}
+
+					if (maps[numMap]->getMap()[i][j] == 'r')
+					{
+						//closeDoor->RotateFlip(System::Drawing::RotateFlipType::Rotate180FlipX);
+						e->Graphics->DrawImageUnscaled(closeDoorR, i * 64  + maps[numMap]->getX(), j * 64 - 28+ maps[numMap]->getY());
+
+					}
+					else if (maps[numMap]->getMap()[i][j] == 'R')
+					{
+						//openDoor->RotateFlip(System::Drawing::RotateFlipType::Rotate180FlipX);
+						e->Graphics->DrawImageUnscaled(openDoorR, i * 64 + maps[numMap]->getX(), j * 64 - 28 + maps[numMap]->getY());
 					}
 				}
 			}
@@ -188,12 +203,12 @@
 			}
 
 
-			//e->Graphics->DrawString(Convert::ToString(maps[numMap]->getColumn()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
-			//e->Graphics->DrawString(Convert::ToString(maps[numMap]->getLine()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
+			e->Graphics->DrawString(Convert::ToString(maps[numMap]->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
+			e->Graphics->DrawString(Convert::ToString(maps[numMap]->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
 
 
-			e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
-			e->Graphics->DrawString(Convert::ToString(player->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
+			//e->Graphics->DrawString(Convert::ToString(player->getX()), osmain, gcnew SolidBrush(Color::Black), 0, 0);
+			//e->Graphics->DrawString(Convert::ToString(player->getY()), osmain, gcnew SolidBrush(Color::Black), 100, 0);
 			e->Graphics->DrawString(Convert::ToString(player->getHP()), osmain, gcnew SolidBrush(Color::Red), 825, 0);
 			e->Graphics->DrawString(Convert::ToString(player->getMP()), osmain, gcnew SolidBrush(Color::Blue), 900, 0);
 			e->Graphics->DrawString(Convert::ToString(player->getLevel()), osmain, gcnew SolidBrush(Color::Yellow), 975, 0);
@@ -211,6 +226,7 @@
 			}
 			else
 				timeChangeSpriteOfPlayer++;
+
 			e->Graphics->DrawImageUnscaled(maps[numMap]->getFront(), maps[numMap]->getX(), maps[numMap]->getY());
 		}
 
@@ -238,36 +254,58 @@
 
 
 					numMap++;
+
+
+					for (int i = 0; i < maps[numMap]->getColumn(); i++)
+					{
+						for (int j = 0; j < maps[numMap]->getLine(); j++)
+						{
+							if (maps[numMap]->getMap()[i][j] == 's')
+							{
+								player->setX(i);
+								player->setY(j);
+								maps[numMap]->setX((maps[numMap]->getStartxPlayer()- player->getX()) * 64);
+								maps[numMap]->setY((maps[numMap]->getStartyPlayer() - player->getY()) * 64);
+								
+								i = maps[numMap]->getColumn();
+								break;
+							}
+						}
+					}
 					  
 					direct = 1;
 
-					player->setX(maps[numMap]->getStartxPlayer());
-
-					player->setY(maps[numMap]->getStartyPlayer());
-
-					maps[numMap]->getMap()[player->getX()][player->getY()] = 's';
-
-				
-
 					player->rotation(direct);
-
 
 					this->Invalidate();
 				}
 				else if (maps[numMap]->getMap()[player->getX()][player->getY()] == 's')
 				{
+					//-192, -640
 
 
 					numMap--;
 
-					direct = 1;
-						
-					player->setX(maps[numMap]->getStartxPlayer());
+					for (int i = 0; i < maps[numMap]->getColumn(); i++)
+					{
+						for (int j = 0; j < maps[numMap]->getLine(); j++)
+						{
+							if (maps[numMap]->getMap()[i][j] == 'S')
+							{
+								player->setX(i);
+								player->setY(j);
+								maps[numMap]->setX((maps[numMap]->getStartxPlayer() - player->getX()) * 64);
+								maps[numMap]->setY((maps[numMap]->getStartyPlayer() - player->getY()) * 64);
+							
+								i = maps[numMap]->getColumn();
+								break;
+							}
+						}
+					}
 
-					player->setY(maps[numMap]->getStartyPlayer());
+					direct = 1;
 
 					player->rotation(direct);
-
 
 					this->Invalidate();
 				}
