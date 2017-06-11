@@ -47,5 +47,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Game.resx" />
     <EmbeddedResource Include="StartMenu.resx" />
+    <EmbeddedResource Include="Settings.resx" />
   </ItemGroup>
 </Project>
