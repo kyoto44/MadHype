@@ -9,7 +9,8 @@
 #include "Map.h"
 #include <fstream>
 #include "StartMenu.h"
-#include <SFML/Audio.hpp>
+
+
 
 	namespace MadHype {
 
@@ -110,12 +111,6 @@
 			 }
 
 	public:
-
-		sf::Music *music;
-		if (!music->openFromFile(".\\sounds\\1.mp3"))
-			return -1; // error
-		music->play();
-
 		System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
 		Bitmap^ closeDoor = gcnew Bitmap(".\\images\\doors\\closedoor.png", true);
