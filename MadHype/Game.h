@@ -9,7 +9,6 @@
 #include "Map.h"
 #include <fstream>
 #include "StartMenu.h"
-#include <SFML/Audio.hpp>
 
 	namespace MadHype {
 
@@ -111,10 +110,7 @@
 
 	public:
 
-		sf::Music *music;
-		if (!music->openFromFile(".\\sounds\\1.mp3"))
-			return -1; // error
-		music->play();
+		
 
 		System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
@@ -142,11 +138,7 @@
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 
 		this->backgroundWorker1->WorkerReportsProgress = true;
-		this->backgroundWorker1->RunWorkerAsync();
-
-		
-		
-		
+		this->backgroundWorker1->RunWorkerAsync();		
 
 		
 		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal2.txt", 8, 8));
