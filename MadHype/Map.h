@@ -64,7 +64,6 @@ public:
 		
 
 		std::ifstream file(name);
-		char c;
 
 		int x, y;
 		file >> x;
