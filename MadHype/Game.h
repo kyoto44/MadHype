@@ -9,6 +9,7 @@
 #include "Map.h"
 #include <fstream>
 #include "StartMenu.h"
+#include "Settings.h"
 #include <windows.h>
 #include "SDL.h"
 #include "SDL_mixer.h"
@@ -39,6 +40,7 @@
 		{
 			InitializeMyComponent();
 			InitializeComponent();
+			InitializeSettings();
 			//
 			//TODO: äîáàâüòå êîä êîíñòðóêòîðà
 			//
@@ -70,6 +72,8 @@
 
 
 	private: StartMenu^ startmenu = gcnew StartMenu();
+	private: Settings^ settings = gcnew Settings();
+	
 
 #pragma region Windows Form Designer generated code
 			 /// <summary>
@@ -80,6 +84,12 @@
 			 {
 				 this->startmenu = gcnew StartMenu();
 				 this->Controls->Add(startmenu);
+			 }
+
+			 void InitializeSettings(void)
+			 {
+				 this->settings = gcnew Settings();
+				 this->Controls->Add(settings);
 
 			 }
 			 void InitializeComponent(void)
@@ -146,10 +156,11 @@
 		
 		Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
 		
-
+		
 		Mix_Music* music;
 		music = Mix_LoadMUS(".\\sounds\\1.ogg");
 		Mix_PlayMusic(music, -1);
+		Mix_VolumeMusic(50);
 
 	   //PlaySound(TEXT(".\\sounds\\1.WAV"), NULL, SND_FILENAME | SND_ASYNC);
 		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal2.txt", 8, 8));
@@ -246,9 +257,30 @@
 		while (true)
 		{
 			bool gameLife = startmenu->GameLife();
-
+		// bool fullscreen = settings->Fullscreen();
+		//	bool openMenu = settings->OpenMenu();
+			
 			while (gameLife)
 			{
+
+			
+				
+			/*	if (fullscreen) 
+				{
+					this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+					this->WindowState = FormWindowState::Maximized;
+				}
+
+				else 
+				
+				{
+					this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+					this->WindowState = FormWindowState::Normal;
+					this->ClientSize = System::Drawing::Size(1024, 1024);
+				
+				}
+            */
+				
 
 				if (player->getXP() > player->getXPNeededToLVLUP())
 				{

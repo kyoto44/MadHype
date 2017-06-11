@@ -1,4 +1,5 @@
 #pragma once
+#include "Settings.h"
 
 using namespace System;
 using namespace System::ComponentModel;
@@ -147,7 +148,8 @@ namespace MadHype {
 	}
 			 
 	private: System::Void Settings_Click(System::Object^  sender, System::EventArgs^  e) {
-
+		
+		this->DestroyHandle();
 
 	}
 
