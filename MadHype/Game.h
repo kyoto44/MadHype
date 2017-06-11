@@ -10,8 +10,6 @@
 #include <fstream>
 #include "StartMenu.h"
 
-
-
 	namespace MadHype {
 
 
@@ -111,6 +109,9 @@
 			 }
 
 	public:
+
+		
+
 		System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
 		Bitmap^ closeDoor = gcnew Bitmap(".\\images\\doors\\closedoor.png", true);
@@ -137,11 +138,7 @@
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 
 		this->backgroundWorker1->WorkerReportsProgress = true;
-		this->backgroundWorker1->RunWorkerAsync();
-
-		
-		
-		
+		this->backgroundWorker1->RunWorkerAsync();		
 
 		
 		maps->Add(gcnew Map(0, 0, gcnew Bitmap(".\\images\\Locations\\newLocation.png", true), gcnew Bitmap(".\\images\\Locations\\LocationFront.png", true), ".\\maps\\mapZal2.txt", 8, 8));
