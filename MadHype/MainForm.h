@@ -101,6 +101,7 @@ namespace MadHype {
 
 	
 	private: System::Void MainForm_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
+		/*
 		if (e->KeyValue == VK_DOWN)
 		{
 
@@ -122,10 +123,12 @@ namespace MadHype {
 
 			game->setArrow(4);
 		}
-
+		*/
 	}
 	private: System::Void MainForm_KeyUp(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 	
+
+		/*
 		if (e->KeyValue == VK_DOWN)
 		{
 			// y+=8;
@@ -153,6 +156,7 @@ namespace MadHype {
 			game->maps[game->numMap]->openDoor(game->player->getDirect(), game->player->getX(), game->player->getY());
 
 		}
+		*/
 	}
 };
 }
