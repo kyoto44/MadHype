@@ -8,11 +8,12 @@
 #include "Enemy.h"
 #include "Map.h"
 #include <fstream>
-#include "StartMenu.h"
-#include "Settings.h"
 #include <windows.h>
 #include "SDL.h"
-#include "SDL_mixer.h"
+#include "SDL_mixer.h" 
+
+
+
 
 	
 	namespace MadHype {
@@ -33,14 +34,14 @@
 	/// <summary>
 	/// Ñâîäêà äëÿ Game
 	/// </summary>
-	public ref class Game : public System::Windows::Forms::Form
+	public ref class Game : public System::Windows::Forms::UserControl
 	{
 	public:
 		Game(void)
 		{
-			InitializeMyComponent();
+
 			InitializeComponent();
-			InitializeSettings();
+
 			//
 			//TODO: äîáàâüòå êîä êîíñòðóêòîðà
 			//
@@ -54,6 +55,7 @@
 		{
 			if (components)
 			{
+				
 				delete components;
 			}
 		}
@@ -71,9 +73,9 @@
 
 
 
-	private: StartMenu^ startmenu = gcnew StartMenu();
-	private: Settings^ settings = gcnew Settings();
-	
+
+
+
 
 #pragma region Windows Form Designer generated code
 			 /// <summary>
@@ -82,14 +84,12 @@
 			 /// </summary>
 			 void InitializeMyComponent(void)
 			 {
-				 this->startmenu = gcnew StartMenu();
-				 this->Controls->Add(startmenu);
+
 			 }
 
 			 void InitializeSettings(void)
 			 {
-				 this->settings = gcnew Settings();
-				 this->Controls->Add(settings);
+
 
 			 }
 			 void InitializeComponent(void)
@@ -104,27 +104,24 @@
 				 // 
 				 // Game
 				 // 
-				 this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
-				 this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-				 this->ClientSize = System::Drawing::Size(1018, 999);
 				 this->DoubleBuffered = true;
 				 this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 					 static_cast<System::Byte>(204)));
-				 this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
+				 this->ImeMode = System::Windows::Forms::ImeMode::Off;
 				 this->Name = L"Game";
-				 this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-				 this->Text = L"Game";
+				 this->Size = System::Drawing::Size(1024, 1024);
 				 this->Load += gcnew System::EventHandler(this, &Game::Form1_Load);
 				 this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyDown);
 				 this->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &Game::Form1_KeyPress);
 				 this->KeyUp += gcnew System::Windows::Forms::KeyEventHandler(this, &Game::Form1_KeyUp);
 				 this->ResumeLayout(false);
+				
 
 			 }
 
 	public:
 
-		
+		bool gameLife = false;
 
 		System::Drawing::Font^ osmain = gcnew System::Drawing::Font("DS Pixel Cyr", 35.00F, FontStyle::Regular);
 
@@ -148,9 +145,20 @@
 		List <Map ^> ^maps = maps = gcnew List <Map ^>();
 
 
+		public: void StartGame(bool x)
+		{
+
+			gameLife = x;
+		}
 
 	private: System::Void Form1_Load(System::Object^  sender, System::EventArgs^  e) {
 
+		
+		this->SetStyle(ControlStyles::Selectable, false);
+		
+
+		
+		
 		this->backgroundWorker1->WorkerReportsProgress = true;
 		this->backgroundWorker1->RunWorkerAsync();		
 		
@@ -170,6 +178,11 @@
 
 
 		player = gcnew Player(1, 100, 100, maps[numMap]->getStartxPlayer(), maps[numMap]->getStartyPlayer(), 0, gcnew Bitmap(".\\images\\pers\\persL.png", true), gcnew Bitmap(".\\images\\pers\\persR.png", true));
+
+		
+
+		
+
 	}
 
 
@@ -256,7 +269,7 @@
 
 		while (true)
 		{
-			bool gameLife = startmenu->GameLife();
+			
 		// bool fullscreen = settings->Fullscreen();
 		//	bool openMenu = settings->OpenMenu();
 			
@@ -380,6 +393,11 @@
 	private: System::Void Form1_KeyPress(System::Object^  sender, System::Windows::Forms::KeyPressEventArgs^  e) {
 
 
+	}
+
+	public: void setArrow(int x)
+	{
+		arrow = x;
 	}
 	private: System::Void Form1_KeyDown(System::Object^  sender, System::Windows::Forms::KeyEventArgs^  e) {
 

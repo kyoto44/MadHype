@@ -1,6 +1,7 @@
 #include "SDL.h"
 #include "SDL_mixer.h"
 
+
 #pragma once
 
 using namespace System;
@@ -40,15 +41,10 @@ namespace MadHype {
 		}
 	private: System::Windows::Forms::Panel^  panel1;
 	public: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::CheckBox^  checkBox1;
+	public: System::Windows::Forms::CheckBox^  checkBox1;
 	private: System::Windows::Forms::TrackBar^  trackBar1;
 	public: System::Windows::Forms::Label^  label2;
 	public: System::Windows::Forms::Label^  label3;
-	private:
-	public:
-	private:
-	protected:
-
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
@@ -88,7 +84,7 @@ namespace MadHype {
 			this->trackBar1->Location = System::Drawing::Point(559, 146);
 			this->trackBar1->Maximum = 4;
 			this->trackBar1->Name = L"trackBar1";
-			this->trackBar1->Size = System::Drawing::Size(213, 45);
+			this->trackBar1->Size = System::Drawing::Size(213, 42);
 			this->trackBar1->TabIndex = 5;
 			this->trackBar1->Scroll += gcnew System::EventHandler(this, &Settings::trackBar1_Scroll);
 			// 
@@ -112,7 +108,6 @@ namespace MadHype {
 			this->checkBox1->Size = System::Drawing::Size(15, 14);
 			this->checkBox1->TabIndex = 3;
 			this->checkBox1->UseVisualStyleBackColor = true;
-			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &Settings::checkBox1_CheckedChanged);
 			// 
 			// label1
 			// 
@@ -143,10 +138,16 @@ namespace MadHype {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(1024, 1024);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->panel1);
+			this->DoubleBuffered = true;
+			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+		//	this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"Settings";
-			this->Size = System::Drawing::Size(1024, 1024);
+			//this->StartPosition = System::Windows::Forms::FormStartPosition::Manual;
+			this->Load += gcnew System::EventHandler(this, &Settings::Settings_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackBar1))->EndInit();
@@ -167,19 +168,13 @@ namespace MadHype {
 	}
 
 
-public:
-	bool openMenu = false;
 
-	public: bool OpenMenu()
-	{
-		return openMenu;
-	}
 
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
 
 
 
-	this->DestroyHandle();
+	this->Hide();
 
 
 }
@@ -194,10 +189,16 @@ public:
 private: System::Void checkBox1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 
 	if(checkBox1->Checked) {
+		
+		
 		bool fullscreen = true;
+		
 	}
 	else { bool fullscreen = false; }
 
+}
+private: System::Void Settings_Load(System::Object^  sender, System::EventArgs^  e) {
+	this->SetStyle(ControlStyles::Selectable, false);
 }
 };
 }
