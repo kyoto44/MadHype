@@ -79,7 +79,7 @@
 
 #pragma region Windows Form Designer generated code
 			 /// <summary>
-			 /// Òðåáóåìûé ìåòîä äëÿ ïîääåðæêè êîíñòðóêòîðà — íå èçìåíÿéòå 
+			 /// вывывыв
 			 /// ñîäåðæèìîå ýòîãî ìåòîäà ñ ïîìîùüþ ðåäàêòîðà êîäà.
 			 /// </summary>
 			 void InitializeMyComponent(void)
