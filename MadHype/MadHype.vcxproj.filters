@@ -54,5 +54,6 @@
     <EmbeddedResource Include="Game.resx" />
     <EmbeddedResource Include="StartMenu.resx" />
     <EmbeddedResource Include="Settings.resx" />
+    <EmbeddedResource Include="MainForm.resx" />
   </ItemGroup>
 </Project>
