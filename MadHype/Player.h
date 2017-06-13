@@ -56,14 +56,14 @@ public:
 		persR = x;
 	}
 
-	void setLevel(int x)
+	void setLevel(int x)  //Установка значения текущего уровня
 	{
 		Level = x;
 	}
 
 
 
-	int getLevel() { return Level; }
+	int getLevel() { return Level; } //Получение значения текущего уровня
 
 	void setHP(int x) //Установка значения здоровья
 	{
