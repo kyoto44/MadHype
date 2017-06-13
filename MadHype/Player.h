@@ -21,15 +21,15 @@ public:
 	}
 
 private:
-	int Level,
-		HP,
-		MP,
-		X,
-		Y,
-		XP,
-		XPNeededToLVLUP = 100,
-		direct;
-	Bitmap^ persL;
+	int Level, // Текущий уровень
+		HP, // Текущее здоровье
+		MP, // Текущая мана
+		X, // Текущая координата по оси X
+		Y, // Текущая координата по оси Y
+		XP, // Текущее количество опыта
+		XPNeededToLVLUP = 100, // Стартовое значение для получения след. уровня  
+		direct; // Текущее направление движения
+	Bitmap^ persL; 
 	Bitmap^ persR;
 
 
@@ -65,87 +65,87 @@ public:
 
 	int getLevel() { return Level; }
 
-	void setHP(int x)
+	void setHP(int x) //Установка значения здоровья
 	{
 		HP = x;
 	}
 
-	int getHP() { return HP; }
+	int getHP() { return HP; } //Получение значения здоровья
 
-	void setMP(int x)
+	void setMP(int x) //Установка значения маны
 	{
 		MP = x;
 	}
 
-	int getMP() { return MP; }
+	int getMP() { return MP; } //Получение значения маны
 
-	void setX(int x)
+	void setX(int x) //Установка текущей координаты X
 	{
 		X = x;
 	}
 
-	int getX() { return X; }
+	int getX() { return X; } //Получение текущей координаты X
 
-	void setY(int x)
+	void setY(int x) //Установка текущей координаты Y
 	{
 		this->Y = x;
 	}
 
-	int getY() { return Y; }
+	int getY() { return Y; } //Получение текущей координаты X
 
 
-	void setXP(int x)
+	void setXP(int x) //Установка текущего значения опыта
 	{
 		XP = x;
 	}
 
 
 
-	int getXP() { return XP; }
+	int getXP() { return XP; } //Получение текущего значения опыта
 
 
-	void setXPNeededToLVLUP(int x)
+	void setXPNeededToLVLUP(int x) //Установка значения опыта, необходимого для перехода на новый уровень
 	{
 		XPNeededToLVLUP = x;
 	}
 
-	int getXPNeededToLVLUP() { return XPNeededToLVLUP; }
+	int getXPNeededToLVLUP() { return XPNeededToLVLUP; } //Получение значения опыта, необходимого для перехода на новый уровень
 
 
 
-	int getDirect()
+	int getDirect() //Получение значения направления движения
 	{
 		return direct;
 	}
 
-	bool checkStop(int Direct, char** Map)
+	bool checkStop(int Direct, char** Map) //Проверка остановки персонажа
 	{
 
 
 		switch (Direct)
 		{
-		case 1: //âíèç
+		case 1: //вниз
 		{
 			if (Map[X][Y + 1] == 'w' || Map[X][Y + 1] == 'd' || Map[X][Y + 1] == 'r')
 				return false;
 			break;
 
 		}
-		case 2: //âëåâî
+		case 2: //влево
 		{
 
 			if (Map[X - 1][Y] == 'w' || Map[X - 1][Y] == 'd' || Map[X - 1][Y] == 'r')
 				return false;
 			break;
 		}
-		case 3: //âïðàâî
+		case 3: //вправо
 		{
 
 			if (Map[X + 1][Y] == 'w' || Map[X + 1][Y] == 'd' || Map[X + 1][Y] == 'r')
 				return false;
 			break;
 		}
-		case 4://ââåðõ
+		case 4://вверх
 		{
 
 			if (Map[X][Y - 1] == 'w' || Map[X][Y - 1] == 'd' || Map[X][Y - 1] == 'r')
@@ -162,11 +162,11 @@ public:
 		return true;
 	}
 
-	void rotation(int Direct)
+	void rotation(int Direct) //Поворот модели игрока в зависимости от направления движения
 	{
 		switch (Direct)
 		{
-		case 1: //âíèç
+		case 1: //вниз
 		{
 
 
@@ -177,7 +177,7 @@ public:
 
 
 		}
-		case 2: //âëåâî
+		case 2: //влево
 		{
 			setPersL(gcnew Bitmap(".\\images\\pers\\persSL.png", true));
 			setPersR(gcnew Bitmap(".\\images\\pers\\persSLM.png", true));
@@ -185,7 +185,7 @@ public:
 
 			break;
 		}
-		case 3: //âïðàâî
+		case 3: //вправо
 		{
 			setPersL(gcnew Bitmap(".\\images\\pers\\persSR.png", true));
 			setPersR(gcnew Bitmap(".\\images\\pers\\persSRM.png", true));
@@ -193,7 +193,7 @@ public:
 
 			break;
 		}
-		case 4://ââåðõ
+		case 4: //вверх
 		{
 			setPersL(gcnew Bitmap(".\\images\\pers\\persBL.png", true));
 			setPersR(gcnew Bitmap(".\\images\\pers\\persBR.png", true));
@@ -208,26 +208,26 @@ public:
 		}
 	}
 
-	void move(int Direct, int Speed)
+	void move(int Direct, int Speed) //Передвижение игрока по карте в зависимости от его скорости и направления движения
 	{
 		switch (Direct)
 		{
-		case 1: //âíèç
+		case 1: //вниз
 		{
 			Y += Speed;
 			break;
 		}
-		case 2: //âëåâî
+		case 2: //влево
 		{
 			X -= Speed;
 			break;
 		}
-		case 3: //âïðàâî
+		case 3: //вправо
 		{
 			X += Speed;
 			break;
 		}
-		case 4://ââåðõ
+		case 4://вверх
 		{
 			Y -= Speed;
 			break;
